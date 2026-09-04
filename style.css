@@ -1,0 +1,2412 @@
+/* ============================================================
+FOR YOU, AS ALWAYS
+Main Stylesheet
+============================================================ */
+
+
+/* ============================================================
+1. ROOT VARIABLES
+============================================================ */
+
+:root {
+
+--background: #0b0614;
+--background-light: #130a22;
+--purple: #9b6cff;
+--light-purple: #c7a6ff;
+--soft-purple: #a98cff;
+--lavender: #d8c2ff;
+
+--white: #f8f4ff;
+--soft-white: rgba(248, 244, 255, 0.78);
+
+--glow: rgba(155, 108, 255, 0.7);
+--soft-glow: rgba(155, 108, 255, 0.25);
+
+--rose: #d978a9;
+--rose-light: #f1a8ca;
+
+--serif: "Cormorant Garamond", Georgia, serif;
+--sans: "Montserrat", Arial, sans-serif;
+
+--transition: 0.8s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* ============================================================
+2. RESET
+============================================================ */
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+html {
+scroll-behavior: smooth;
+}
+
+
+body {
+
+min-height: 100vh;
+
+background:
+radial-gradient(
+circle at 50% 20%,
+rgba(25, 45, 100, 0.20),
+transparent 40%
+),
+radial-gradient(
+circle at 10% 80%,
+rgba(15, 35, 85, 0.15),
+transparent 35%
+),
+#060b1c;
+
+color: var(--white);
+
+font-family: var(--sans);
+
+overflow-x: hidden;
+}
+
+
+/* ============================================================
+3. BACKGROUND ATMOSPHERE
+============================================================ */
+
+.background-effects {
+
+position: fixed;
+
+inset: 0;
+
+width: 100%;
+height: 100%;
+
+pointer-events: none;
+
+overflow: hidden;
+
+z-index: 0;
+}
+
+
+/* Large atmospheric glow */
+
+.background-effects::before {
+
+content: "";
+
+position: absolute;
+
+width: 600px;
+height: 600px;
+
+left: 50%;
+top: 30%;
+
+transform: translate(-50%, -50%);
+
+background:
+radial-gradient(
+circle,
+rgba(118, 67, 194, 0.14),
+transparent 70%
+);
+
+filter: blur(40px);
+
+animation:
+atmospherePulse 8s ease-in-out infinite;
+}
+
+
+@keyframes atmospherePulse {
+
+0%, 100% {
+transform:
+translate(-50%, -50%)
+scale(0.9);
+opacity: 0.6;
+}
+
+50% {
+transform:
+translate(-50%, -50%)
+scale(1.15);
+opacity: 1;
+}
+}
+
+
+/* ============================================================
+4. BACKGROUND PARTICLES
+============================================================ */
+
+.background-particle {
+
+position: absolute;
+
+border-radius: 50%;
+
+background: var(--lavender);
+
+box-shadow:
+0 0 5px var(--lavender),
+0 0 12px var(--purple);
+
+opacity: 0;
+
+animation:
+particlePulse
+ease-in-out
+infinite;
+}
+
+
+@keyframes particlePulse {
+
+0% {
+opacity: 0;
+transform: scale(0.5);
+}
+
+50% {
+opacity: 0.8;
+transform: scale(1);
+}
+
+100% {
+opacity: 0;
+transform: scale(0.5);
+}
+}
+
+
+/* ============================================================
+5. GLOWING DECORATIVE LINES
+============================================================ */
+
+.glow-line {
+
+position: absolute;
+
+height: 1px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+var(--purple),
+transparent
+);
+
+box-shadow:
+0 0 5px var(--purple),
+0 0 15px var(--purple),
+0 0 30px rgba(155,108,255,.5);
+
+opacity: 0.4;
+
+animation: lineGlow 5s ease-in-out infinite;
+}
+
+
+.line-one {
+
+width: 45%;
+
+top: 20%;
+left: -10%;
+
+transform: rotate(-18deg);
+}
+
+
+.line-two {
+
+width: 35%;
+
+right: -5%;
+top: 65%;
+
+transform: rotate(22deg);
+
+animation-delay: 2s;
+}
+
+
+.line-three {
+
+width: 30%;
+
+left: 20%;
+bottom: 10%;
+
+transform: rotate(-8deg);
+
+animation-delay: 3s;
+}
+
+
+@keyframes lineGlow {
+
+0%, 100% {
+opacity: 0.15;
+}
+
+50% {
+opacity: 0.55;
+}
+}
+
+
+/* ============================================================
+6. FALLING EFFECTS
+============================================================ */
+
+.falling-object {
+
+position: absolute;
+
+top: -60px;
+
+z-index: 1;
+
+pointer-events: none;
+
+user-select: none;
+
+opacity: 0;
+
+animation-name: falling;
+animation-timing-function: linear;
+animation-fill-mode: forwards;
+
+text-shadow:
+0 0 5px currentColor,
+0 0 15px currentColor,
+0 0 30px currentColor;
+}
+
+
+/* Main falling animation */
+
+@keyframes falling {
+
+0% {
+
+transform:
+translate3d(0, -80px, 0)
+rotate(0deg)
+scale(0.7);
+
+opacity: 0;
+}
+
+10% {
+opacity: 0.8;
+}
+
+50% {
+
+transform:
+translate3d(
+var(--drift),
+50vh,
+0
+)
+rotate(
+calc(var(--rotation) / 2)
+)
+scale(1);
+
+opacity: 0.65;
+}
+
+90% {
+opacity: 0.25;
+}
+
+100% {
+
+transform:
+translate3d(
+calc(var(--drift) * -0.4),
+115vh,
+0
+)
+rotate(var(--rotation))
+scale(0.5);
+
+opacity: 0;
+}
+}
+
+
+/* Hearts */
+
+.falling-heart {
+color: #c792ff;
+}
+
+
+/* Roses */
+
+.falling-rose {
+
+filter:
+drop-shadow(
+0 0 8px rgba(235, 130, 180, .8)
+);
+}
+
+
+/* Sparkles */
+
+.falling-sparkle {
+
+color: #e2d0ff;
+
+animation-name: sparkleFall;
+}
+
+
+@keyframes sparkleFall {
+
+0% {
+
+transform:
+translateY(-80px)
+rotate(0deg)
+scale(0);
+
+opacity: 0;
+}
+
+15% {
+opacity: 1;
+transform:
+translateY(10vh)
+rotate(120deg)
+scale(1.2);
+}
+
+50% {
+
+transform:
+translate(
+var(--drift),
+55vh
+)
+rotate(300deg)
+scale(0.8);
+}
+
+100% {
+
+transform:
+translate(
+calc(var(--drift) * -0.5),
+110vh
+)
+rotate(700deg)
+scale(0);
+
+opacity: 0;
+}
+}
+
+
+/* Stars */
+
+.falling-star {
+
+color: #d9c3ff;
+
+animation-name: starFall;
+}
+
+
+@keyframes starFall {
+
+0% {
+transform:
+translateY(-50px)
+rotate(0deg);
+opacity: 0;
+}
+
+15% {
+opacity: 1;
+}
+
+50% {
+
+transform:
+translate(
+var(--drift),
+50vh
+)
+rotate(180deg);
+
+}
+
+100% {
+
+transform:
+translate(
+calc(var(--drift) * -0.5),
+110vh
+)
+rotate(500deg);
+
+opacity: 0;
+}
+}
+
+
+/* Small dots */
+
+.falling-dot {
+
+color: #b996e8;
+
+opacity: 0.5;
+
+text-shadow:
+0 0 8px #b996e8;
+}
+
+
+/* Petals */
+
+.falling-petal {
+
+color: #dca3c5;
+
+animation-name: petalFall;
+}
+
+
+@keyframes petalFall {
+
+0% {
+
+transform:
+translateY(-60px)
+rotate(0deg);
+
+opacity: 0;
+}
+
+15% {
+opacity: 0.8;
+}
+
+30% {
+
+transform:
+translate(
+calc(var(--drift) * -0.5),
+30vh
+)
+rotate(120deg);
+}
+
+65% {
+
+transform:
+translate(
+var(--drift),
+70vh
+)
+rotate(280deg);
+}
+
+100% {
+
+transform:
+translate(
+calc(var(--drift) * -0.3),
+110vh
+)
+rotate(500deg);
+
+opacity: 0;
+}
+}
+
+
+/* Diamonds */
+
+.falling-diamond {
+
+color: #aa8bff;
+
+animation-name: diamondFall;
+}
+
+
+@keyframes diamondFall {
+
+0% {
+
+transform:
+translateY(-70px)
+rotate(0deg)
+scale(0);
+
+opacity: 0;
+}
+
+15% {
+opacity: 0.8;
+transform:
+translateY(10vh)
+rotate(90deg)
+scale(1);
+}
+
+100% {
+
+transform:
+translate(
+var(--drift),
+110vh
+)
+rotate(600deg)
+scale(0.3);
+
+opacity: 0;
+}
+}
+
+
+/* Tiny particles */
+
+.falling-particle {
+
+color: #d8c8ff;
+
+font-size: 8px !important;
+
+animation-name: tinyParticleFall;
+}
+
+
+@keyframes tinyParticleFall {
+
+0% {
+transform:
+translateY(-40px)
+scale(0);
+
+opacity: 0;
+}
+
+20% {
+opacity: 0.7;
+}
+
+100% {
+
+transform:
+translate(
+var(--drift),
+110vh
+)
+scale(0);
+
+opacity: 0;
+}
+}
+
+
+/* ============================================================
+7. ENTRANCE SCREEN
+============================================================ */
+
+.entrance-screen {
+
+position: fixed;
+
+inset: 0;
+
+width: 100%;
+height: 100vh;
+
+min-height: 600px;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+align-items: center;
+
+text-align: center;
+
+z-index: 100;
+
+background:
+
+radial-gradient(
+circle at center,
+rgba(82, 42, 137, 0.2),
+transparent 40%
+),
+
+linear-gradient(
+135deg,
+#08040e,
+#120820,
+#08040e
+);
+
+transition:
+opacity 1.2s ease,
+transform 1.2s ease,
+visibility 1.2s;
+}
+
+
+/* When opening */
+
+.entrance-screen.opening {
+
+opacity: 0;
+
+transform: scale(1.15);
+
+visibility: hidden;
+
+pointer-events: none;
+}
+
+
+/* ============================================================
+8. FLOATING ENTRANCE ROSE
+============================================================ */
+
+.entrance-rose {
+
+position: absolute;
+
+top: 12%;
+
+font-size: 48px;
+
+filter:
+drop-shadow(
+0 0 8px rgba(230, 120, 180, .6)
+)
+drop-shadow(
+0 0 20px rgba(155, 108, 255, .4)
+);
+
+animation:
+floatingRose
+4s
+ease-in-out
+infinite;
+
+z-index: 4;
+}
+
+
+@keyframes floatingRose {
+
+0%, 100% {
+
+transform:
+translateY(0)
+rotate(-4deg);
+
+}
+
+50% {
+
+transform:
+translateY(-15px)
+rotate(4deg);
+
+}
+}
+
+
+/* ============================================================
+9. HEART ENTRANCE
+============================================================ */
+
+.heart-entrance {
+
+position: relative;
+
+width: 210px;
+height: 190px;
+
+border: none;
+
+background: transparent;
+
+cursor: pointer;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+z-index: 5;
+
+transform: rotate(-45deg);
+
+transition:
+transform .5s ease;
+}
+
+
+.heart-entrance::before,
+.heart-entrance::after {
+
+content: "";
+
+position: absolute;
+
+width: 140px;
+height: 140px;
+
+background:
+radial-gradient(
+circle at 30% 25%,
+#b990ff,
+#7042a9 45%,
+#351651 100%
+);
+
+border:
+1px solid rgba(216,194,255,.7);
+
+box-shadow:
+
+inset
+0 0 25px
+rgba(255,255,255,.08),
+
+0 0 10px
+rgba(170,120,255,.7),
+
+0 0 30px
+rgba(155,108,255,.55),
+
+0 0 70px
+rgba(155,108,255,.25);
+
+border-radius: 70px 70px 12px 70px;
+
+transition:
+box-shadow .5s ease;
+}
+
+
+.heart-entrance::before {
+
+top: 0;
+left: 35px;
+}
+
+
+.heart-entrance::after {
+
+top: 35px;
+left: 0;
+}
+
+
+/* Heart center */
+
+.heart-content {
+
+position: relative;
+
+z-index: 10;
+
+transform: rotate(45deg);
+
+width: 150px;
+
+pointer-events: none;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+gap: 5px;
+}
+
+
+.heart-content h1 {
+
+font-family: var(--serif);
+
+font-size: 42px;
+
+font-weight: 600;
+
+letter-spacing: 1px;
+
+color: white;
+
+text-shadow:
+
+0 0 5px white,
+
+0 0 15px var(--light-purple),
+
+0 0 30px var(--purple);
+}
+
+
+.heart-small-text {
+
+font-family: var(--sans);
+
+font-size: 8px;
+
+letter-spacing: 3px;
+
+text-transform: uppercase;
+
+color: rgba(255,255,255,.7);
+}
+
+
+/* Heart hover */
+
+.heart-entrance:hover {
+
+transform:
+rotate(-45deg)
+scale(1.08);
+}
+
+
+.heart-entrance:hover::before,
+.heart-entrance:hover::after {
+
+box-shadow:
+
+inset
+0 0 30px
+rgba(255,255,255,.12),
+
+0 0 15px
+rgba(190,150,255,.9),
+
+0 0 45px
+rgba(155,108,255,.75),
+
+0 0 100px
+rgba(155,108,255,.4);
+}
+
+
+/* Pulsing heart */
+
+.heart-entrance {
+
+animation:
+heartPulse
+2.4s
+ease-in-out
+infinite;
+}
+
+
+@keyframes heartPulse {
+
+0%, 100% {
+filter:
+drop-shadow(
+0 0 5px rgba(155,108,255,.3)
+);
+}
+
+50% {
+filter:
+drop-shadow(
+0 0 20px rgba(155,108,255,.7)
+);
+}
+}
+
+
+/* ============================================================
+10. TAP TEXT
+============================================================ */
+
+.tap-text {
+
+margin-top: 35px;
+
+font-size: 11px;
+
+letter-spacing: 5px;
+
+text-transform: uppercase;
+
+color: rgba(216,194,255,.7);
+
+animation:
+tapPulse
+2s
+ease-in-out
+infinite;
+
+z-index: 5;
+}
+
+
+@keyframes tapPulse {
+
+0%, 100% {
+opacity: .4;
+}
+
+50% {
+opacity: 1;
+}
+}
+
+
+/* ============================================================
+11. ENTRANCE DIVIDER
+============================================================ */
+
+.entrance-divider {
+
+display: flex;
+
+align-items: center;
+
+gap: 15px;
+
+margin-top: 20px;
+
+opacity: .5;
+}
+
+
+.entrance-divider span {
+
+width: 50px;
+
+height: 1px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+var(--purple)
+);
+
+box-shadow:
+0 0 8px var(--purple);
+}
+
+
+.entrance-divider span:last-child {
+
+background:
+linear-gradient(
+90deg,
+var(--purple),
+transparent
+);
+}
+
+
+.entrance-divider i {
+
+color: var(--light-purple);
+
+font-style: normal;
+
+text-shadow:
+0 0 10px var(--purple);
+}
+
+
+/* ============================================================
+12. MAIN CONTENT
+============================================================ */
+
+.main-content {
+
+position: relative;
+
+z-index: 2;
+
+opacity: 0;
+
+transition:
+opacity 1.5s ease;
+}
+
+
+.main-content.visible {
+
+opacity: 1;
+}
+
+
+/* ============================================================
+13. INTRO SECTION
+============================================================ */
+
+.intro-section {
+
+min-height: 100vh;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+text-align: center;
+
+padding: 100px 25px;
+
+position: relative;
+}
+
+
+.intro-content {
+
+max-width: 900px;
+
+width: 100%;
+
+animation:
+introAppear
+1.5s
+ease
+both;
+}
+
+
+@keyframes introAppear {
+
+from {
+
+opacity: 0;
+
+transform:
+translateY(40px);
+
+}
+
+to {
+
+opacity: 1;
+
+transform:
+translateY(0);
+
+}
+}
+
+
+/* ============================================================
+14. EYEBROW
+============================================================ */
+
+.eyebrow {
+
+font-family: var(--sans);
+
+text-transform: uppercase;
+
+letter-spacing: 5px;
+
+font-size: 11px;
+
+color: #e8d9ff;
+
+margin-bottom: 20px;
+
+text-shadow:
+0 0 12px rgba(255,255,255,.7);
+
+}
+
+
+/* ============================================================
+15. MAIN TITLE
+============================================================ */
+
+.main-title {
+
+font-family: var(--serif);
+
+font-size:
+clamp(
+55px,
+8vw,
+110px
+);
+
+line-height: .95;
+
+font-weight: 500;
+
+letter-spacing: -2px;
+
+color: #ffffff;
+
+text-shadow:
+0 0 15px rgba(255,255,255,.08);
+}
+
+
+.main-title span {
+
+color: #c9a7ff;
+
+text-shadow:
+
+0 0 5px var(--light-purple),
+
+0 0 15px var(--purple),
+
+0 0 40px rgba(155,108,255,.6);
+}
+
+
+/* ============================================================
+16. INTRO DESCRIPTION
+============================================================ */
+
+.intro-description {
+
+max-width: 580px;
+
+margin:
+35px
+auto
+0;
+
+font-family: var(--serif);
+
+font-size: 20px;
+
+line-height: 1.7;
+
+color: #eee6ff;
+}
+
+
+/* ============================================================
+17. INTRO LINES
+============================================================ */
+
+.intro-lines {
+
+margin:
+65px
+auto
+0;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+gap: 18px;
+
+width: min(600px, 90%);
+}
+
+
+.intro-line {
+
+flex: 1;
+
+height: 1px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+var(--purple)
+);
+
+box-shadow:
+0 0 8px var(--purple);
+
+opacity: .6;
+}
+
+
+.intro-line.right {
+
+background:
+linear-gradient(
+90deg,
+var(--purple),
+transparent
+);
+}
+
+
+.read-on {
+
+color: #d8c2ff;
+
+font-size: 10px;
+
+letter-spacing: 4px;
+
+text-transform: uppercase;
+
+cursor: pointer;
+
+transition:
+transform .3s ease,
+text-shadow .3s ease;
+}
+
+
+.read-on:hover {
+
+transform: translateY(4px);
+
+text-shadow:
+0 0 10px var(--light-purple),
+0 0 25px var(--purple);
+}
+
+
+/* ============================================================
+18. SCROLL INDICATOR
+============================================================ */
+
+.scroll-indicator {
+
+margin-top: 35px;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+gap: 5px;
+}
+
+
+.scroll-indicator span {
+
+width: 8px;
+height: 8px;
+
+border-right: 1px solid var(--lavender);
+border-bottom: 1px solid var(--lavender);
+
+transform:
+rotate(45deg);
+
+animation:
+arrowDown
+1.8s
+ease-in-out
+infinite;
+}
+
+
+.scroll-indicator span:nth-child(2) {
+
+animation-delay: .2s;
+
+opacity: .5;
+}
+
+
+@keyframes arrowDown {
+
+0%, 100% {
+opacity: .2;
+transform:
+rotate(45deg)
+translate(-2px,-2px);
+}
+
+50% {
+opacity: 1;
+transform:
+rotate(45deg)
+translate(3px,3px);
+}
+}
+
+
+/* ============================================================
+19. CONFESSION SECTION
+============================================================ */
+
+.confession-section {
+
+position: relative;
+
+min-height: 100vh;
+
+padding:
+150px
+25px
+120px;
+
+overflow: hidden;
+}
+
+
+/* Huge faded title */
+
+.background-title {
+
+position: absolute;
+
+top: 100px;
+
+left: 50%;
+
+transform:
+translateX(-50%);
+
+white-space: nowrap;
+
+font-family: var(--serif);
+
+font-size:
+clamp(
+100px,
+20vw,
+300px
+);
+
+color: rgba(255,255,255,.025);
+
+pointer-events: none;
+
+user-select: none;
+
+z-index: 0;
+}
+
+
+.confession-content {
+
+position: relative;
+
+z-index: 2;
+
+max-width: 900px;
+
+margin: auto;
+
+text-align: center;
+}
+
+
+/* ============================================================
+20. SECTION LABEL
+============================================================ */
+
+.section-label {
+
+font-size: 10px;
+
+text-transform: uppercase;
+
+letter-spacing: 6px;
+
+color: rgba(216,194,255,.45);
+
+margin-bottom: 30px;
+}
+
+
+/* ============================================================
+21. CONFESSION HEADING
+============================================================ */
+
+.confession-heading {
+
+font-family: var(--serif);
+
+font-size:
+clamp(
+38px,
+5vw,
+65px
+);
+
+font-weight: 500;
+
+line-height: 1.12;
+
+color: #ffffff;
+
+max-width: 800px;
+
+margin: auto;
+
+text-shadow:
+0 0 20px rgba(155,108,255,.08);
+}
+
+
+/* ============================================================
+22. HEART DIVIDER
+============================================================ */
+
+.heart-divider {
+
+display: flex;
+
+align-items: center;
+
+gap: 20px;
+
+width: min(600px, 90%);
+
+margin:
+60px
+auto
+70px;
+}
+
+
+.divider-line {
+
+flex: 1;
+
+height: 1px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(155,108,255,.7)
+);
+
+box-shadow:
+0 0 8px
+rgba(155,108,255,.6);
+}
+
+
+.divider-line:last-child {
+
+background:
+linear-gradient(
+90deg,
+rgba(155,108,255,.7),
+transparent
+);
+}
+
+
+.divider-heart {
+
+color: var(--light-purple);
+
+font-size: 18px;
+
+text-shadow:
+0 0 8px var(--purple),
+0 0 20px var(--purple);
+
+animation:
+dividerBeat
+2s
+ease-in-out
+infinite;
+}
+
+
+@keyframes dividerBeat {
+
+0%, 100% {
+transform: scale(1);
+}
+
+50% {
+transform: scale(1.25);
+}
+}
+
+
+/* ============================================================
+23. LETTER
+============================================================ */
+
+.letter {
+
+max-width: 720px;
+
+margin: auto;
+
+text-align: left;
+}
+
+
+.letter-paragraph {
+
+font-family: var(--serif);
+
+font-size: 21px;
+
+line-height: 1.9;
+
+letter-spacing: .15px;
+
+color: rgba(245, 240, 255, 0.92);
+
+margin-bottom: 38px;
+
+transition:
+opacity 1s ease,
+transform 1s ease;
+}
+
+
+/* ============================================================
+24. SCROLL REVEAL
+============================================================ */
+
+.hidden-before-reveal {
+
+opacity: 0;
+
+transform:
+translateY(35px);
+}
+
+
+.revealed {
+
+opacity: 1;
+
+transform:
+translateY(0);
+}
+
+
+/* ============================================================
+25. HIDDEN MESSAGE
+============================================================ */
+
+.hidden-message {
+
+margin:
+70px
+0;
+
+text-align: center;
+}
+
+
+.reveal-button {
+
+background: transparent;
+
+border:
+1px solid
+rgba(199,166,255,.35);
+
+color: #e6d8ff;
+
+padding:
+14px
+25px;
+
+border-radius: 50px;
+
+font-family: var(--sans);
+
+font-size: 10px;
+
+letter-spacing: 2px;
+
+text-transform: uppercase;
+
+cursor: pointer;
+
+transition:
+all .4s ease;
+
+box-shadow:
+0 0 15px
+rgba(155,108,255,.08);
+}
+
+
+.reveal-button:hover {
+
+border-color:
+var(--light-purple);
+
+box-shadow:
+0 0 15px
+rgba(155,108,255,.4),
+
+0 0 35px
+rgba(155,108,255,.15);
+
+transform:
+translateY(-3px);
+}
+
+
+.secret-text {
+
+max-height: 0;
+
+overflow: hidden;
+
+opacity: 0;
+
+transform:
+translateY(-10px);
+
+transition:
+max-height 1s ease,
+opacity .8s ease,
+transform .8s ease;
+}
+
+
+.secret-text.show-secret {
+
+max-height: 300px;
+
+opacity: 1;
+
+transform:
+translateY(0);
+
+margin-top: 30px;
+}
+
+
+.secret-text p {
+
+font-family: var(--serif);
+
+font-size: 20px;
+
+line-height: 1.8;
+
+color: #e6d8ff;
+
+font-style: italic;
+
+text-shadow:
+0 0 12px
+rgba(199,166,255,.25);
+}
+
+
+/* ============================================================
+26. FINAL DIVIDER
+============================================================ */
+
+.final-divider {
+
+display: flex;
+
+align-items: center;
+
+gap: 25px;
+
+margin:
+120px
+0
+100px;
+}
+
+
+.final-divider span {
+
+height: 1px;
+
+flex: 1;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(155,108,255,.6)
+);
+
+box-shadow:
+0 0 8px
+rgba(155,108,255,.5);
+}
+
+
+.final-divider span:last-child {
+
+background:
+linear-gradient(
+90deg,
+rgba(155,108,255,.6),
+transparent
+);
+}
+
+
+.divider-symbol {
+
+font-size: 13px;
+
+letter-spacing: 8px;
+
+color: #d8b8ff;
+
+text-shadow:
+0 0 10px var(--purple);
+}
+
+
+/* ============================================================
+27. FINAL SECTION
+============================================================ */
+
+.final-section {
+
+min-height: 60vh;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+justify-content: center;
+
+text-align: center;
+}
+
+
+.final-message {
+
+font-family: var(--serif);
+
+font-size:
+clamp(
+28px,
+4vw,
+48px
+);
+
+font-style: italic;
+
+color: rgba(248,244,255,.85);
+
+text-shadow:
+0 0 15px
+rgba(155,108,255,.2);
+
+max-width: 650px;
+}
+
+
+/* ============================================================
+28. FINAL ROSE
+============================================================ */
+
+.final-rose {
+
+font-size: 65px;
+
+margin-top: 50px;
+
+cursor: pointer;
+
+display: inline-block;
+
+filter:
+drop-shadow(
+0 0 8px rgba(230,130,180,.5)
+)
+drop-shadow(
+0 0 20px rgba(155,108,255,.35)
+);
+
+animation:
+roseHeartbeat
+1.8s
+ease-in-out
+infinite;
+
+transition:
+filter .4s ease;
+}
+
+
+@keyframes roseHeartbeat {
+
+0%, 100% {
+
+transform:
+scale(1)
+rotate(-2deg);
+
+}
+
+14% {
+
+transform:
+scale(1.08)
+rotate(2deg);
+
+}
+
+28% {
+
+transform:
+scale(1)
+rotate(-2deg);
+
+}
+
+42% {
+
+transform:
+scale(1.05)
+rotate(1deg);
+
+}
+
+70% {
+
+transform:
+scale(1)
+rotate(0deg);
+
+}
+}
+
+
+.final-rose:hover {
+
+filter:
+drop-shadow(
+0 0 12px rgba(240,150,200,.8)
+)
+drop-shadow(
+0 0 35px rgba(155,108,255,.7)
+);
+}
+
+
+.final-rose.rose-clicked {
+
+animation:
+roseBurst
+.7s
+ease;
+}
+
+
+@keyframes roseBurst {
+
+0% {
+transform: scale(1);
+}
+
+40% {
+transform: scale(1.5);
+}
+
+100% {
+transform: scale(1);
+}
+}
+
+
+/* ============================================================
+29. SIGNATURE
+============================================================ */
+
+.signature {
+
+margin-top: 25px;
+
+font-family: var(--serif);
+
+font-size: 25px;
+
+font-style: italic;
+
+color: #e1ccff;
+
+text-shadow:
+0 0 10px
+rgba(199,166,255,.4);
+}
+
+
+/* ============================================================
+30. CLICK HEART EFFECT
+============================================================ */
+
+.click-heart {
+
+position: fixed;
+
+z-index: 999;
+
+pointer-events: none;
+
+color: var(--light-purple);
+
+font-size: 20px;
+
+text-shadow:
+0 0 8px var(--purple),
+0 0 20px var(--purple);
+
+transform:
+translate(-50%, -50%);
+
+animation:
+clickHeartAnimation
+1.2s
+ease-out
+forwards;
+}
+
+
+@keyframes clickHeartAnimation {
+
+0% {
+
+opacity: 1;
+
+transform:
+translate(-50%, -50%)
+scale(.5);
+}
+
+50% {
+
+opacity: 1;
+
+transform:
+translate(-50%, -100px)
+scale(1.2);
+}
+
+100% {
+
+opacity: 0;
+
+transform:
+translate(-50%, -160px)
+scale(.5);
+}
+}
+
+
+/* ============================================================
+31. ROSE HEART BURST
+============================================================ */
+
+.rose-heart {
+
+position: fixed;
+
+z-index: 999;
+
+pointer-events: none;
+
+color: var(--rose-light);
+
+font-size: 16px;
+
+text-shadow:
+0 0 10px var(--rose);
+
+animation:
+roseHeartBurst
+1.2s
+ease-out
+forwards;
+}
+
+
+@keyframes roseHeartBurst {
+
+0% {
+
+transform:
+translate(-50%, -50%)
+scale(.3);
+
+opacity: 0;
+}
+
+20% {
+
+opacity: 1;
+
+transform:
+translate(-50%, -50%)
+scale(1);
+}
+
+100% {
+
+transform:
+translate(
+calc(-50% + var(--x)),
+calc(-50% + var(--y))
+)
+scale(.2);
+
+opacity: 0;
+}
+}
+
+
+/* ============================================================
+32. AMBIENT GLOW
+============================================================ */
+
+.ambient-glow {
+
+position: fixed;
+
+width: 100px;
+height: 100px;
+
+border-radius: 50%;
+
+pointer-events: none;
+
+background:
+radial-gradient(
+circle,
+rgba(155,108,255,.15),
+transparent 70%
+);
+
+filter: blur(15px);
+
+transform:
+translate(-50%, -50%)
+scale(.3);
+
+animation:
+ambientGlow
+4s
+ease-out
+forwards;
+}
+
+
+@keyframes ambientGlow {
+
+0% {
+
+opacity: 0;
+
+transform:
+translate(-50%, -50%)
+scale(.3);
+}
+
+40% {
+opacity: 1;
+}
+
+100% {
+
+opacity: 0;
+
+transform:
+translate(-50%, -50%)
+scale(2.5);
+}
+}
+
+
+/* ============================================================
+33. FOOTER
+============================================================ */
+
+.site-footer {
+
+padding:
+70px
+25px
+40px;
+
+text-align: center;
+
+color:
+rgba(216,194,255,.35);
+
+font-size: 9px;
+
+letter-spacing: 1px;
+}
+
+
+.site-footer span {
+
+display: block;
+
+margin-top: 15px;
+
+color:
+rgba(199,166,255,.5);
+
+text-shadow:
+0 0 10px var(--purple);
+}
+
+
+/* ============================================================
+34. MOBILE RESPONSIVENESS
+============================================================ */
+
+@media (max-width: 700px) {
+
+.entrance-rose {
+top: 10%;
+font-size: 40px;
+}
+
+
+.heart-entrance {
+
+width: 180px;
+height: 165px;
+
+}
+
+
+.heart-entrance::before,
+.heart-entrance::after {
+
+width: 120px;
+height: 120px;
+
+}
+
+
+.heart-entrance::before {
+
+left: 30px;
+
+}
+
+
+.heart-entrance::after {
+
+top: 30px;
+
+}
+
+
+.heart-content h1 {
+
+font-size: 34px;
+
+}
+
+
+.intro-section {
+
+padding:
+80px
+20px;
+
+}
+
+
+.eyebrow {
+
+font-size: 9px;
+
+letter-spacing: 3px;
+
+}
+
+
+.intro-description {
+
+font-size: 18px;
+
+line-height: 1.65;
+
+}
+
+
+.intro-lines {
+
+margin-top: 45px;
+
+}
+
+
+.confession-section {
+
+padding:
+100px
+20px
+80px;
+
+}
+
+
+.background-title {
+
+top: 70px;
+
+font-size: 90px;
+
+}
+
+
+.confession-heading {
+
+font-size: 36px;
+
+}
+
+
+.letter-paragraph {
+
+font-size: 19px;
+
+line-height: 1.8;
+
+}
+
+
+.heart-divider {
+
+margin:
+45px
+auto
+55px;
+
+}
+
+
+.final-divider {
+
+margin:
+80px
+0
+70px;
+
+}
+
+
+.final-message {
+
+font-size: 30px;
+
+}
+
+
+.final-rose {
+
+font-size: 55px;
+
+}
+
+}
+
+
+/* ============================================================
+35. VERY SMALL PHONES
+============================================================ */
+
+@media (max-width: 400px) {
+
+.heart-entrance {
+
+transform:
+rotate(-45deg)
+scale(.85);
+
+}
+
+
+.heart-entrance:hover {
+
+transform:
+rotate(-45deg)
+scale(.92);
+
+}
+
+
+.main-title {
+
+font-size: 52px;
+
+}
+
+
+.confession-heading {
+
+font-size: 32px;
+
+}
+
+
+.letter-paragraph {
+
+font-size: 18px;
+
+}
+
+}
+
+
+/* ============================================================
+36. REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+*,
+*::before,
+*::after {
+
+animation-duration: .01ms !important;
+
+animation-iteration-count: 1 !important;
+
+scroll-behavior: auto !important;
+
+}
+
+}
