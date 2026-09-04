@@ -1,363 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<!-- Makes the website work properly on phones -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the website work properly on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For You, As Always</title>
+    <title>For You, As Always</title>
 
-<!-- Google Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- Our CSS -->
-<link rel="stylesheet" href="style.css">
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =====================================================
-BACKGROUND EFFECT LAYER
-===================================================== -->
+    <!-- =====================================================
+         BACKGROUND EFFECT LAYER
+         ===================================================== -->
 
-<div class="background-effects">
+    <div class="background-effects">
 
-<!-- These will be animated later with CSS/JavaScript -->
-<div class="falling-effects" id="fallingEffects"></div>
+        <!-- These will be animated later with CSS/JavaScript -->
+        <div class="falling-effects" id="fallingEffects"></div>
 
-<!-- Glowing decorative lines -->
-<div class="glow-line line-one"></div>
-<div class="glow-line line-two"></div>
-<div class="glow-line line-three"></div>
+        <!-- Glowing decorative lines -->
+        <div class="glow-line line-one"></div>
+        <div class="glow-line line-two"></div>
+        <div class="glow-line line-three"></div>
 
-</div>
+    </div>
 
 
-<!-- =====================================================
-OPENING / ENTRANCE SCREEN
-===================================================== -->
+    <!-- =====================================================
+         OPENING / ENTRANCE SCREEN
+         ===================================================== -->
 
-<section id="entrance" class="entrance-screen">
+    <section id="entrance" class="entrance-screen">
 
-<!-- Floating rose -->
-<div class="entrance-rose" id="entranceRose">
-🌹
-</div>
+        <!-- Floating rose -->
+        <div class="entrance-rose" id="entranceRose">
+            🌹
+        </div>
 
-<!-- Decorative particles surrounding the heart -->
-<div class="heart-particles"></div>
+        <!-- Decorative particles surrounding the heart -->
+        <div class="heart-particles"></div>
 
-<!-- Main heart entrance -->
-<button class="heart-entrance" id="beginButton">
+        <!-- Main heart entrance -->
+        <button class="heart-entrance" id="beginButton">
 
-<div class="heart-glow"></div>
+            <div class="heart-glow"></div>
 
-<div class="heart-content">
+            <div class="heart-content">
 
-<span class="heart-small-text">
-A little something
-</span>
+                <span class="heart-small-text">
+                    A little something
+                </span>
 
-<h1>
-For You
-</h1>
+                <h1>
+                    For You
+                </h1>
 
-</div>
+            </div>
 
-</button>
+        </button>
 
-<!-- Instruction -->
-<p class="tap-text">
-Tap To Begin
-</p>
+        <!-- Instruction -->
+        <p class="tap-text">
+            Tap To Begin
+        </p>
 
-<!-- Small decorative line -->
-<div class="entrance-divider">
-<span></span>
-<i>♥</i>
-<span></span>
-</div>
+        <!-- Small decorative line -->
+        <div class="entrance-divider">
+            <span></span>
+            <i>♥</i>
+            <span></span>
+        </div>
 
-</section>
+    </section>
 
 
-<!-- =====================================================
-MAIN WEBSITE
-Hidden until the heart is clicked
-===================================================== -->
+    <!-- =====================================================
+         MAIN WEBSITE
+         Hidden until the heart is clicked
+         ===================================================== -->
 
-<main id="mainContent" class="main-content">
+    <main id="mainContent" class="main-content">
 
 
-<!-- =================================================
-INTRODUCTION
-================================================= -->
+        <!-- =================================================
+             INTRODUCTION
+             ================================================= -->
 
-<section class="intro-section">
+        <section class="intro-section">
 
-<div class="intro-content">
+            <div class="intro-content">
 
-<p class="eyebrow">
-A Letter Written From The Heart
-</p>
+                <p class="eyebrow">
+                    A Letter Written From The Heart
+                </p>
 
-<h1 class="main-title">
-For <span>You</span>, As Always
-</h1>
+                <h1 class="main-title">
+                    For <span>You</span>, As Always
+                </h1>
 
-<p class="intro-description">
-Some feelings are too honest to keep silent.
-This one is for you - read it slowly, with an open heart.
-</p>
+                <p class="intro-description">
+                    Some feelings are too honest to keep silent.
+                    This one is for you - read it slowly, with an open heart.
+                </p>
 
-<!-- Decorative glowing lines -->
-<div class="intro-lines">
+                <!-- Decorative glowing lines -->
+                <div class="intro-lines">
 
-<div class="intro-line left"></div>
+                    <div class="intro-line left"></div>
 
-<div class="read-on">
-<span>Read on</span>
-</div>
+                    <div class="read-on">
+                        <span>Read on</span>
+                    </div>
 
-<div class="intro-line right"></div>
+                    <div class="intro-line right"></div>
 
-</div>
+                </div>
 
-<!-- Down arrow -->
-<div class="scroll-indicator">
+                <!-- Down arrow -->
+                <div class="scroll-indicator">
 
-<span></span>
-<span></span>
+                    <span></span>
+                    <span></span>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</section>
+        </section>
 
 
-<!-- =================================================
-CONFESSION SECTION
-================================================= -->
+        <!-- =================================================
+             CONFESSION SECTION
+             ================================================= -->
 
-<section id="confession" class="confession-section">
+        <section id="confession" class="confession-section">
 
-<!-- Huge faded background text -->
-<div class="background-title">
-My Confession
-</div>
+            <!-- Huge faded background text -->
+            <div class="background-title">
+                My Confession
+            </div>
 
 
-<div class="confession-content">
+            <div class="confession-content">
 
-<!-- Section label -->
-<p class="section-label">
-My Confession
-</p>
+                <!-- Section label -->
+                <p class="section-label">
+                    My Confession
+                </p>
 
 
-<!-- Main confession heading -->
-<h2 class="confession-heading">
-My Heart had already chosen you
-without me even realizing it.
-</h2>
+                <!-- Main confession heading -->
+                <h2 class="confession-heading">
+                    My Heart had already chosen you
+                    without me even realizing it.
+                </h2>
 
 
-<!-- Heart divider -->
-<div class="heart-divider">
+                <!-- Heart divider -->
+                <div class="heart-divider">
 
-<div class="divider-line"></div>
+                    <div class="divider-line"></div>
 
-<div class="divider-heart">
-♥
-</div>
+                    <div class="divider-heart">
+                        ♥
+                    </div>
 
-<div class="divider-line"></div>
+                    <div class="divider-line"></div>
 
-</div>
+                </div>
 
 
-<!-- =========================================
-LETTER
-========================================= -->
+                <!-- =========================================
+                     LETTER
+                     ========================================= -->
 
-<article class="letter">
+                <article class="letter">
 
-<p class="letter-paragraph reveal-text">
-I don't really know where the perfect place
-to begin this is, because some feelings don't
-arrive with a clear explanation. Sometimes they
-simply grow quietly, little by little, until one
-day you realize that someone has become much more
-important to you than you ever expected.
-</p>
+                    <p class="letter-paragraph reveal-text">
+                        I don't really know where the perfect place
+                        to begin this is, because some feelings don't
+                        arrive with a clear explanation. Sometimes they
+                        simply grow quietly, little by little, until one
+                        day you realize that someone has become much more
+                        important to you than you ever expected.
+                    </p>
 
 
-<p class="letter-paragraph reveal-text">
-Maybe it started with the smallest things.
-A conversation that stayed in my mind longer
-than it should have. A simple moment that somehow
-became something I remembered. A smile, a word,
-a presence that made an ordinary day feel a
-little different. I never really noticed when
-those little moments started becoming memories
-that I wanted to keep.
-</p>
+                    <p class="letter-paragraph reveal-text">
+                        Maybe it started with the smallest things.
+                        A conversation that stayed in my mind longer
+                        than it should have. A simple moment that somehow
+                        became something I remembered. A smile, a word,
+                        a presence that made an ordinary day feel a
+                        little different. I never really noticed when
+                        those little moments started becoming memories
+                        that I wanted to keep.
+                    </p>
 
 
-<p class="letter-paragraph reveal-text">
-And somewhere along the way, I realized that
-whenever I thought about the things that made
-my days better, you somehow found your way into
-those thoughts. I wasn't looking for it. I wasn't
-planning for it. It just happened naturally.
-And perhaps that is what makes this feeling
-difficult to explain.
-</p>
+                    <p class="letter-paragraph reveal-text">
+                        And somewhere along the way, I realized that
+                        whenever I thought about the things that made
+                        my days better, you somehow found your way into
+                        those thoughts. I wasn't looking for it. I wasn't
+                        planning for it. It just happened naturally.
+                        And perhaps that is what makes this feeling
+                        difficult to explain.
+                    </p>
 
 
-<p class="letter-paragraph reveal-text">
-I could probably keep pretending that it is
-nothing, that it is just admiration or a passing
-feeling, but I don't think being honest with
-myself means hiding behind those words anymore.
-There is something about you that I genuinely
-appreciate, something that made me want to know
-you more, understand you more, and simply be
-someone who could bring a little happiness into
-your days.
-</p>
+                    <p class="letter-paragraph reveal-text">
+                        I could probably keep pretending that it is
+                        nothing, that it is just admiration or a passing
+                        feeling, but I don't think being honest with
+                        myself means hiding behind those words anymore.
+                        There is something about you that I genuinely
+                        appreciate, something that made me want to know
+                        you more, understand you more, and simply be
+                        someone who could bring a little happiness into
+                        your days.
+                    </p>
 
 
-<p class="letter-paragraph reveal-text">
-I don't expect this letter to change anything,
-and I don't want you to feel pressured by it.
-I just wanted there to be one place where I could
-finally put these thoughts into words instead of
-keeping them locked away inside my head.
-You deserve honesty, and this is mine.
-</p>
+                    <p class="letter-paragraph reveal-text">
+                        I don't expect this letter to change anything,
+                        and I don't want you to feel pressured by it.
+                        I just wanted there to be one place where I could
+                        finally put these thoughts into words instead of
+                        keeping them locked away inside my head.
+                        You deserve honesty, and this is mine.
+                    </p>
 
 
-<p class="letter-paragraph reveal-text">
-Maybe you already knew. Maybe you never noticed.
-Either way, I'm glad I finally found the courage
-to say what I have been carrying for a while.
-Whatever happens after this, I will still be
-grateful for the moments that made me realize
-how special someone can become without even
-trying.
-</p>
+                    <p class="letter-paragraph reveal-text">
+                        Maybe you already knew. Maybe you never noticed.
+                        Either way, I'm glad I finally found the courage
+                        to say what I have been carrying for a while.
+                        Whatever happens after this, I will still be
+                        grateful for the moments that made me realize
+                        how special someone can become without even
+                        trying.
+                    </p>
 
 
-<!-- Hidden message -->
-<div class="hidden-message" id="hiddenMessage">
+                    <!-- Hidden message -->
+                    <div class="hidden-message" id="hiddenMessage">
 
-<button class="reveal-button" id="revealButton">
-There is something else...
-</button>
+                        <button class="reveal-button" id="revealButton">
+                            There is something else...
+                        </button>
 
-<div class="secret-text" id="secretText">
+                        <div class="secret-text" id="secretText">
 
-<p>
-Some words are easier to write than to say.
-So here they are, quietly waiting for you.
-</p>
+                            <p>
+                                Some words are easier to write than to say.
+                                So here they are, quietly waiting for you.
+                            </p>
 
-</div>
+                        </div>
 
-</div>
+                    </div>
 
 
-</article>
+                </article>
 
 
-<!-- =========================================
-FINAL DIVIDER
-========================================= -->
+                <!-- =========================================
+                     FINAL DIVIDER
+                     ========================================= -->
 
-<div class="final-divider">
+                <div class="final-divider">
 
-<span></span>
+                    <span></span>
 
-<div class="divider-symbol">
-✦ ♥ ✦
-</div>
+                    <div class="divider-symbol">
+                        ✦ ♥ ✦
+                    </div>
 
-<span></span>
+                    <span></span>
 
-</div>
+                </div>
 
 
-<!-- =========================================
-FINAL MESSAGE
-========================================= -->
+                <!-- =========================================
+                     FINAL MESSAGE
+                     ========================================= -->
 
-<section class="final-section">
+                <section class="final-section">
 
-<p class="final-message">
-With all the sincerity my heart can offer.
-</p>
+                    <p class="final-message">
+                        With all the sincerity my heart can offer.
+                    </p>
 
 
-<!-- Animated rose -->
-<div class="final-rose" id="finalRose">
-🌹
-</div>
+                    <!-- Animated rose -->
+                    <div class="final-rose" id="finalRose">
+                        🌹
+                    </div>
 
 
-<!-- Final signature -->
-<p class="signature">
-— Brynelle
-</p>
+                    <!-- Final signature -->
+                    <p class="signature">
+                        — Brynelle
+                    </p>
 
-</section>
+                </section>
 
-</div>
+            </div>
 
-</section>
+        </section>
 
 
-<!-- =================================================
-FOOTER
-================================================= -->
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
 
-<footer class="site-footer">
+        <footer class="site-footer">
 
-<p>
-Made with sincerity, a little courage,
-and a heart full of words.
-</p>
+            <p>
+                Made with sincerity, a little courage,
+                and a heart full of words.
+            </p>
 
-<span>♥</span>
+            <span>♥</span>
 
-</footer>
+        </footer>
 
-</main>
+    </main>
 
 
-<!-- =====================================================
-FUTURE MUSIC SYSTEM
-===================================================== -->
+    <!-- =====================================================
+         FUTURE MUSIC SYSTEM
+         ===================================================== -->
 
-<!--
-MUSIC WILL BE ADDED LATER.
+    <!--
+        MUSIC WILL BE ADDED LATER.
 
-Example structure we will eventually use:
+        Example structure we will eventually use:
 
-<audio id="backgroundMusic" loop>
-<source src="music/your-song.mp3" type="audio/mpeg">
-</audio>
+        <audio id="backgroundMusic" loop>
+            <source src="music/your-song.mp3" type="audio/mpeg">
+        </audio>
 
-We are intentionally leaving it disabled for now.
--->
+        We are intentionally leaving it disabled for now.
+    -->
 
 
-<!-- Our JavaScript -->
-<script src="script.js"></script>
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 </html>
