@@ -1,97 +1,98 @@
+```css
 /* ============================================================
-FOR YOU, AS ALWAYS
-Main Stylesheet
-============================================================ */
+   FOR YOU, AS ALWAYS
+   Main Stylesheet
+   ============================================================ */
 
 
 /* ============================================================
-1. ROOT VARIABLES
-============================================================ */
+   1. ROOT VARIABLES
+   ============================================================ */
 
 :root {
 
---background: #0b0614;
---background-light: #130a22;
---purple: #9b6cff;
---light-purple: #c7a6ff;
---soft-purple: #a98cff;
---lavender: #d8c2ff;
+    --background: #0b0614;
+    --background-light: #130a22;
+    --purple: #9b6cff;
+    --light-purple: #c7a6ff;
+    --soft-purple: #a98cff;
+    --lavender: #d8c2ff;
 
---white: #f8f4ff;
---soft-white: rgba(248, 244, 255, 0.78);
+    --white: #f8f4ff;
+    --soft-white: rgba(248, 244, 255, 0.78);
 
---glow: rgba(155, 108, 255, 0.7);
---soft-glow: rgba(155, 108, 255, 0.25);
+    --glow: rgba(155, 108, 255, 0.7);
+    --soft-glow: rgba(155, 108, 255, 0.25);
 
---rose: #d978a9;
---rose-light: #f1a8ca;
+    --rose: #d978a9;
+    --rose-light: #f1a8ca;
 
---serif: "Cormorant Garamond", Georgia, serif;
---sans: "Montserrat", Arial, sans-serif;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Montserrat", Arial, sans-serif;
 
---transition: 0.8s cubic-bezier(.2,.8,.2,1);
+    --transition: 0.8s cubic-bezier(.2,.8,.2,1);
 }
 
 
 /* ============================================================
-2. RESET
-============================================================ */
+   2. RESET
+   ============================================================ */
 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 
 html {
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 
 body {
 
-min-height: 100vh;
+    min-height: 100vh;
 
-background:
-radial-gradient(
-circle at 50% 20%,
-rgba(25, 45, 100, 0.20),
-transparent 40%
-),
-radial-gradient(
-circle at 10% 80%,
-rgba(15, 35, 85, 0.15),
-transparent 35%
-),
-#060b1c;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(100, 52, 170, 0.18),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(90, 35, 150, 0.12),
+            transparent 35%
+        ),
+        var(--background);
 
-color: var(--white);
+    color: var(--white);
 
-font-family: var(--sans);
+    font-family: var(--sans);
 
-overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 
 /* ============================================================
-3. BACKGROUND ATMOSPHERE
-============================================================ */
+   3. BACKGROUND ATMOSPHERE
+   ============================================================ */
 
 .background-effects {
 
-position: fixed;
+    position: fixed;
 
-inset: 0;
+    inset: 0;
 
-width: 100%;
-height: 100%;
+    width: 100%;
+    height: 100%;
 
-pointer-events: none;
+    pointer-events: none;
 
-overflow: hidden;
+    overflow: hidden;
 
-z-index: 0;
+    z-index: 0;
 }
 
 
@@ -99,198 +100,198 @@ z-index: 0;
 
 .background-effects::before {
 
-content: "";
+    content: "";
 
-position: absolute;
+    position: absolute;
 
-width: 600px;
-height: 600px;
+    width: 600px;
+    height: 600px;
 
-left: 50%;
-top: 30%;
+    left: 50%;
+    top: 30%;
 
-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
-background:
-radial-gradient(
-circle,
-rgba(118, 67, 194, 0.14),
-transparent 70%
-);
+    background:
+        radial-gradient(
+            circle,
+            rgba(118, 67, 194, 0.14),
+            transparent 70%
+        );
 
-filter: blur(40px);
+    filter: blur(40px);
 
-animation:
-atmospherePulse 8s ease-in-out infinite;
+    animation:
+        atmospherePulse 8s ease-in-out infinite;
 }
 
 
 @keyframes atmospherePulse {
 
-0%, 100% {
-transform:
-translate(-50%, -50%)
-scale(0.9);
-opacity: 0.6;
-}
+    0%, 100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.9);
+        opacity: 0.6;
+    }
 
-50% {
-transform:
-translate(-50%, -50%)
-scale(1.15);
-opacity: 1;
-}
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+        opacity: 1;
+    }
 }
 
 
 /* ============================================================
-4. BACKGROUND PARTICLES
-============================================================ */
+   4. BACKGROUND PARTICLES
+   ============================================================ */
 
 .background-particle {
 
-position: absolute;
+    position: absolute;
 
-border-radius: 50%;
+    border-radius: 50%;
 
-background: var(--lavender);
+    background: var(--lavender);
 
-box-shadow:
-0 0 5px var(--lavender),
-0 0 12px var(--purple);
+    box-shadow:
+        0 0 5px var(--lavender),
+        0 0 12px var(--purple);
 
-opacity: 0;
+    opacity: 0;
 
-animation:
-particlePulse
-ease-in-out
-infinite;
+    animation:
+        particlePulse
+        ease-in-out
+        infinite;
 }
 
 
 @keyframes particlePulse {
 
-0% {
-opacity: 0;
-transform: scale(0.5);
-}
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
 
-50% {
-opacity: 0.8;
-transform: scale(1);
-}
+    50% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
 
-100% {
-opacity: 0;
-transform: scale(0.5);
-}
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
 }
 
 
 /* ============================================================
-5. GLOWING DECORATIVE LINES
-============================================================ */
+   5. GLOWING DECORATIVE LINES
+   ============================================================ */
 
 .glow-line {
 
-position: absolute;
+    position: absolute;
 
-height: 1px;
+    height: 1px;
 
-background:
-linear-gradient(
-90deg,
-transparent,
-var(--purple),
-transparent
-);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--purple),
+            transparent
+        );
 
-box-shadow:
-0 0 5px var(--purple),
-0 0 15px var(--purple),
-0 0 30px rgba(155,108,255,.5);
+    box-shadow:
+        0 0 5px var(--purple),
+        0 0 15px var(--purple),
+        0 0 30px rgba(155,108,255,.5);
 
-opacity: 0.4;
+    opacity: 0.4;
 
-animation: lineGlow 5s ease-in-out infinite;
+    animation: lineGlow 5s ease-in-out infinite;
 }
 
 
 .line-one {
 
-width: 45%;
+    width: 45%;
 
-top: 20%;
-left: -10%;
+    top: 20%;
+    left: -10%;
 
-transform: rotate(-18deg);
+    transform: rotate(-18deg);
 }
 
 
 .line-two {
 
-width: 35%;
+    width: 35%;
 
-right: -5%;
-top: 65%;
+    right: -5%;
+    top: 65%;
 
-transform: rotate(22deg);
+    transform: rotate(22deg);
 
-animation-delay: 2s;
+    animation-delay: 2s;
 }
 
 
 .line-three {
 
-width: 30%;
+    width: 30%;
 
-left: 20%;
-bottom: 10%;
+    left: 20%;
+    bottom: 10%;
 
-transform: rotate(-8deg);
+    transform: rotate(-8deg);
 
-animation-delay: 3s;
+    animation-delay: 3s;
 }
 
 
 @keyframes lineGlow {
 
-0%, 100% {
-opacity: 0.15;
-}
+    0%, 100% {
+        opacity: 0.15;
+    }
 
-50% {
-opacity: 0.55;
-}
+    50% {
+        opacity: 0.55;
+    }
 }
 
 
 /* ============================================================
-6. FALLING EFFECTS
-============================================================ */
+   6. FALLING EFFECTS
+   ============================================================ */
 
 .falling-object {
 
-position: absolute;
+    position: absolute;
 
-top: -60px;
+    top: -60px;
 
-z-index: 1;
+    z-index: 1;
 
-pointer-events: none;
+    pointer-events: none;
 
-user-select: none;
+    user-select: none;
 
-opacity: 0;
+    opacity: 0;
 
-animation-name: falling;
-animation-timing-function: linear;
-animation-fill-mode: forwards;
+    animation-name: falling;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 
-text-shadow:
-0 0 5px currentColor,
-0 0 15px currentColor,
-0 0 30px currentColor;
+    text-shadow:
+        0 0 5px currentColor,
+        0 0 15px currentColor,
+        0 0 30px currentColor;
 }
 
 
@@ -298,60 +299,60 @@ text-shadow:
 
 @keyframes falling {
 
-0% {
+    0% {
 
-transform:
-translate3d(0, -80px, 0)
-rotate(0deg)
-scale(0.7);
+        transform:
+            translate3d(0, -80px, 0)
+            rotate(0deg)
+            scale(0.7);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 
-10% {
-opacity: 0.8;
-}
+    10% {
+        opacity: 0.8;
+    }
 
-50% {
+    50% {
 
-transform:
-translate3d(
-var(--drift),
-50vh,
-0
-)
-rotate(
-calc(var(--rotation) / 2)
-)
-scale(1);
+        transform:
+            translate3d(
+                var(--drift),
+                50vh,
+                0
+            )
+            rotate(
+                calc(var(--rotation) / 2)
+            )
+            scale(1);
 
-opacity: 0.65;
-}
+        opacity: 0.65;
+    }
 
-90% {
-opacity: 0.25;
-}
+    90% {
+        opacity: 0.25;
+    }
 
-100% {
+    100% {
 
-transform:
-translate3d(
-calc(var(--drift) * -0.4),
-115vh,
-0
-)
-rotate(var(--rotation))
-scale(0.5);
+        transform:
+            translate3d(
+                calc(var(--drift) * -0.4),
+                115vh,
+                0
+            )
+            rotate(var(--rotation))
+            scale(0.5);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 }
 
 
 /* Hearts */
 
 .falling-heart {
-color: #c792ff;
+    color: #c792ff;
 }
 
 
@@ -359,10 +360,10 @@ color: #c792ff;
 
 .falling-rose {
 
-filter:
-drop-shadow(
-0 0 8px rgba(235, 130, 180, .8)
-);
+    filter:
+        drop-shadow(
+            0 0 8px rgba(235, 130, 180, .8)
+        );
 }
 
 
@@ -370,55 +371,55 @@ drop-shadow(
 
 .falling-sparkle {
 
-color: #e2d0ff;
+    color: #e2d0ff;
 
-animation-name: sparkleFall;
+    animation-name: sparkleFall;
 }
 
 
 @keyframes sparkleFall {
 
-0% {
+    0% {
 
-transform:
-translateY(-80px)
-rotate(0deg)
-scale(0);
+        transform:
+            translateY(-80px)
+            rotate(0deg)
+            scale(0);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 
-15% {
-opacity: 1;
-transform:
-translateY(10vh)
-rotate(120deg)
-scale(1.2);
-}
+    15% {
+        opacity: 1;
+        transform:
+            translateY(10vh)
+            rotate(120deg)
+            scale(1.2);
+    }
 
-50% {
+    50% {
 
-transform:
-translate(
-var(--drift),
-55vh
-)
-rotate(300deg)
-scale(0.8);
-}
+        transform:
+            translate(
+                var(--drift),
+                55vh
+            )
+            rotate(300deg)
+            scale(0.8);
+    }
 
-100% {
+    100% {
 
-transform:
-translate(
-calc(var(--drift) * -0.5),
-110vh
-)
-rotate(700deg)
-scale(0);
+        transform:
+            translate(
+                calc(var(--drift) * -0.5),
+                110vh
+            )
+            rotate(700deg)
+            scale(0);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 }
 
 
@@ -426,47 +427,47 @@ opacity: 0;
 
 .falling-star {
 
-color: #d9c3ff;
+    color: #d9c3ff;
 
-animation-name: starFall;
+    animation-name: starFall;
 }
 
 
 @keyframes starFall {
 
-0% {
-transform:
-translateY(-50px)
-rotate(0deg);
-opacity: 0;
-}
+    0% {
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+        opacity: 0;
+    }
 
-15% {
-opacity: 1;
-}
+    15% {
+        opacity: 1;
+    }
 
-50% {
+    50% {
 
-transform:
-translate(
-var(--drift),
-50vh
-)
-rotate(180deg);
+        transform:
+            translate(
+                var(--drift),
+                50vh
+            )
+            rotate(180deg);
 
-}
+    }
 
-100% {
+    100% {
 
-transform:
-translate(
-calc(var(--drift) * -0.5),
-110vh
-)
-rotate(500deg);
+        transform:
+            translate(
+                calc(var(--drift) * -0.5),
+                110vh
+            )
+            rotate(500deg);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 }
 
 
@@ -474,12 +475,12 @@ opacity: 0;
 
 .falling-dot {
 
-color: #b996e8;
+    color: #b996e8;
 
-opacity: 0.5;
+    opacity: 0.5;
 
-text-shadow:
-0 0 8px #b996e8;
+    text-shadow:
+        0 0 8px #b996e8;
 }
 
 
@@ -487,58 +488,58 @@ text-shadow:
 
 .falling-petal {
 
-color: #dca3c5;
+    color: #dca3c5;
 
-animation-name: petalFall;
+    animation-name: petalFall;
 }
 
 
 @keyframes petalFall {
 
-0% {
+    0% {
 
-transform:
-translateY(-60px)
-rotate(0deg);
+        transform:
+            translateY(-60px)
+            rotate(0deg);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 
-15% {
-opacity: 0.8;
-}
+    15% {
+        opacity: 0.8;
+    }
 
-30% {
+    30% {
 
-transform:
-translate(
-calc(var(--drift) * -0.5),
-30vh
-)
-rotate(120deg);
-}
+        transform:
+            translate(
+                calc(var(--drift) * -0.5),
+                30vh
+            )
+            rotate(120deg);
+    }
 
-65% {
+    65% {
 
-transform:
-translate(
-var(--drift),
-70vh
-)
-rotate(280deg);
-}
+        transform:
+            translate(
+                var(--drift),
+                70vh
+            )
+            rotate(280deg);
+    }
 
-100% {
+    100% {
 
-transform:
-translate(
-calc(var(--drift) * -0.3),
-110vh
-)
-rotate(500deg);
+        transform:
+            translate(
+                calc(var(--drift) * -0.3),
+                110vh
+            )
+            rotate(500deg);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 }
 
 
@@ -546,44 +547,44 @@ opacity: 0;
 
 .falling-diamond {
 
-color: #aa8bff;
+    color: #aa8bff;
 
-animation-name: diamondFall;
+    animation-name: diamondFall;
 }
 
 
 @keyframes diamondFall {
 
-0% {
+    0% {
 
-transform:
-translateY(-70px)
-rotate(0deg)
-scale(0);
+        transform:
+            translateY(-70px)
+            rotate(0deg)
+            scale(0);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 
-15% {
-opacity: 0.8;
-transform:
-translateY(10vh)
-rotate(90deg)
-scale(1);
-}
+    15% {
+        opacity: 0.8;
+        transform:
+            translateY(10vh)
+            rotate(90deg)
+            scale(1);
+    }
 
-100% {
+    100% {
 
-transform:
-translate(
-var(--drift),
-110vh
-)
-rotate(600deg)
-scale(0.3);
+        transform:
+            translate(
+                var(--drift),
+                110vh
+            )
+            rotate(600deg)
+            scale(0.3);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 }
 
 
@@ -591,88 +592,88 @@ opacity: 0;
 
 .falling-particle {
 
-color: #d8c8ff;
+    color: #d8c8ff;
 
-font-size: 8px !important;
+    font-size: 8px !important;
 
-animation-name: tinyParticleFall;
+    animation-name: tinyParticleFall;
 }
 
 
 @keyframes tinyParticleFall {
 
-0% {
-transform:
-translateY(-40px)
-scale(0);
+    0% {
+        transform:
+            translateY(-40px)
+            scale(0);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 
-20% {
-opacity: 0.7;
-}
+    20% {
+        opacity: 0.7;
+    }
 
-100% {
+    100% {
 
-transform:
-translate(
-var(--drift),
-110vh
-)
-scale(0);
+        transform:
+            translate(
+                var(--drift),
+                110vh
+            )
+            scale(0);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 }
 
 
 /* ============================================================
-7. ENTRANCE SCREEN
-============================================================ */
+   7. ENTRANCE SCREEN
+   ============================================================ */
 
 .entrance-screen {
 
-position: fixed;
+    position: fixed;
 
-inset: 0;
+    inset: 0;
 
-width: 100%;
-height: 100vh;
+    width: 100%;
+    height: 100vh;
 
-min-height: 600px;
+    min-height: 600px;
 
-display: flex;
+    display: flex;
 
-flex-direction: column;
+    flex-direction: column;
 
-justify-content: center;
+    justify-content: center;
 
-align-items: center;
+    align-items: center;
 
-text-align: center;
+    text-align: center;
 
-z-index: 100;
+    z-index: 100;
 
-background:
+    background:
 
-radial-gradient(
-circle at center,
-rgba(82, 42, 137, 0.2),
-transparent 40%
-),
+        radial-gradient(
+            circle at center,
+            rgba(82, 42, 137, 0.2),
+            transparent 40%
+        ),
 
-linear-gradient(
-135deg,
-#08040e,
-#120820,
-#08040e
-);
+        linear-gradient(
+            135deg,
+            #08040e,
+            #120820,
+            #08040e
+        );
 
-transition:
-opacity 1.2s ease,
-transform 1.2s ease,
-visibility 1.2s;
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease,
+        visibility 1.2s;
 }
 
 
@@ -680,152 +681,152 @@ visibility 1.2s;
 
 .entrance-screen.opening {
 
-opacity: 0;
+    opacity: 0;
 
-transform: scale(1.15);
+    transform: scale(1.15);
 
-visibility: hidden;
+    visibility: hidden;
 
-pointer-events: none;
+    pointer-events: none;
 }
 
 
 /* ============================================================
-8. FLOATING ENTRANCE ROSE
-============================================================ */
+   8. FLOATING ENTRANCE ROSE
+   ============================================================ */
 
 .entrance-rose {
 
-position: absolute;
+    position: absolute;
 
-top: 12%;
+    top: 12%;
 
-font-size: 48px;
+    font-size: 48px;
 
-filter:
-drop-shadow(
-0 0 8px rgba(230, 120, 180, .6)
-)
-drop-shadow(
-0 0 20px rgba(155, 108, 255, .4)
-);
+    filter:
+        drop-shadow(
+            0 0 8px rgba(230, 120, 180, .6)
+        )
+        drop-shadow(
+            0 0 20px rgba(155, 108, 255, .4)
+        );
 
-animation:
-floatingRose
-4s
-ease-in-out
-infinite;
+    animation:
+        floatingRose
+        4s
+        ease-in-out
+        infinite;
 
-z-index: 4;
+    z-index: 4;
 }
 
 
 @keyframes floatingRose {
 
-0%, 100% {
+    0%, 100% {
 
-transform:
-translateY(0)
-rotate(-4deg);
+        transform:
+            translateY(0)
+            rotate(-4deg);
 
-}
+    }
 
-50% {
+    50% {
 
-transform:
-translateY(-15px)
-rotate(4deg);
+        transform:
+            translateY(-15px)
+            rotate(4deg);
 
-}
+    }
 }
 
 
 /* ============================================================
-9. HEART ENTRANCE
-============================================================ */
+   9. HEART ENTRANCE
+   ============================================================ */
 
 .heart-entrance {
 
-position: relative;
+    position: relative;
 
-width: 210px;
-height: 190px;
+    width: 210px;
+    height: 190px;
 
-border: none;
+    border: none;
 
-background: transparent;
+    background: transparent;
 
-cursor: pointer;
+    cursor: pointer;
 
-display: flex;
+    display: flex;
 
-justify-content: center;
+    justify-content: center;
 
-align-items: center;
+    align-items: center;
 
-z-index: 5;
+    z-index: 5;
 
-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 
-transition:
-transform .5s ease;
+    transition:
+        transform .5s ease;
 }
 
 
 .heart-entrance::before,
 .heart-entrance::after {
 
-content: "";
+    content: "";
 
-position: absolute;
+    position: absolute;
 
-width: 140px;
-height: 140px;
+    width: 140px;
+    height: 140px;
 
-background:
-radial-gradient(
-circle at 30% 25%,
-#b990ff,
-#7042a9 45%,
-#351651 100%
-);
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #b990ff,
+            #7042a9 45%,
+            #351651 100%
+        );
 
-border:
-1px solid rgba(216,194,255,.7);
+    border:
+        1px solid rgba(216,194,255,.7);
 
-box-shadow:
+    box-shadow:
 
-inset
-0 0 25px
-rgba(255,255,255,.08),
+        inset
+        0 0 25px
+        rgba(255,255,255,.08),
 
-0 0 10px
-rgba(170,120,255,.7),
+        0 0 10px
+        rgba(170,120,255,.7),
 
-0 0 30px
-rgba(155,108,255,.55),
+        0 0 30px
+        rgba(155,108,255,.55),
 
-0 0 70px
-rgba(155,108,255,.25);
+        0 0 70px
+        rgba(155,108,255,.25);
 
-border-radius: 70px 70px 12px 70px;
+    border-radius: 70px 70px 12px 70px;
 
-transition:
-box-shadow .5s ease;
+    transition:
+        box-shadow .5s ease;
 }
 
 
 .heart-entrance::before {
 
-top: 0;
-left: 35px;
+    top: 0;
+    left: 35px;
 }
 
 
 .heart-entrance::after {
 
-top: 35px;
-left: 0;
+    top: 35px;
+    left: 0;
 }
 
 
@@ -833,59 +834,59 @@ left: 0;
 
 .heart-content {
 
-position: relative;
+    position: relative;
 
-z-index: 10;
+    z-index: 10;
 
-transform: rotate(45deg);
+    transform: rotate(45deg);
 
-width: 150px;
+    width: 150px;
 
-pointer-events: none;
+    pointer-events: none;
 
-display: flex;
+    display: flex;
 
-flex-direction: column;
+    flex-direction: column;
 
-align-items: center;
+    align-items: center;
 
-gap: 5px;
+    gap: 5px;
 }
 
 
 .heart-content h1 {
 
-font-family: var(--serif);
+    font-family: var(--serif);
 
-font-size: 42px;
+    font-size: 42px;
 
-font-weight: 600;
+    font-weight: 600;
 
-letter-spacing: 1px;
+    letter-spacing: 1px;
 
-color: white;
+    color: white;
 
-text-shadow:
+    text-shadow:
 
-0 0 5px white,
+        0 0 5px white,
 
-0 0 15px var(--light-purple),
+        0 0 15px var(--light-purple),
 
-0 0 30px var(--purple);
+        0 0 30px var(--purple);
 }
 
 
 .heart-small-text {
 
-font-family: var(--sans);
+    font-family: var(--sans);
 
-font-size: 8px;
+    font-size: 8px;
 
-letter-spacing: 3px;
+    letter-spacing: 3px;
 
-text-transform: uppercase;
+    text-transform: uppercase;
 
-color: rgba(255,255,255,.7);
+    color: rgba(255,255,255,.7);
 }
 
 
@@ -893,29 +894,29 @@ color: rgba(255,255,255,.7);
 
 .heart-entrance:hover {
 
-transform:
-rotate(-45deg)
-scale(1.08);
+    transform:
+        rotate(-45deg)
+        scale(1.08);
 }
 
 
 .heart-entrance:hover::before,
 .heart-entrance:hover::after {
 
-box-shadow:
+    box-shadow:
 
-inset
-0 0 30px
-rgba(255,255,255,.12),
+        inset
+        0 0 30px
+        rgba(255,255,255,.12),
 
-0 0 15px
-rgba(190,150,255,.9),
+        0 0 15px
+        rgba(190,150,255,.9),
 
-0 0 45px
-rgba(155,108,255,.75),
+        0 0 45px
+        rgba(155,108,255,.75),
 
-0 0 100px
-rgba(155,108,255,.4);
+        0 0 100px
+        rgba(155,108,255,.4);
 }
 
 
@@ -923,459 +924,459 @@ rgba(155,108,255,.4);
 
 .heart-entrance {
 
-animation:
-heartPulse
-2.4s
-ease-in-out
-infinite;
+    animation:
+        heartPulse
+        2.4s
+        ease-in-out
+        infinite;
 }
 
 
 @keyframes heartPulse {
 
-0%, 100% {
-filter:
-drop-shadow(
-0 0 5px rgba(155,108,255,.3)
-);
-}
+    0%, 100% {
+        filter:
+            drop-shadow(
+                0 0 5px rgba(155,108,255,.3)
+            );
+    }
 
-50% {
-filter:
-drop-shadow(
-0 0 20px rgba(155,108,255,.7)
-);
-}
+    50% {
+        filter:
+            drop-shadow(
+                0 0 20px rgba(155,108,255,.7)
+            );
+    }
 }
 
 
 /* ============================================================
-10. TAP TEXT
-============================================================ */
+   10. TAP TEXT
+   ============================================================ */
 
 .tap-text {
 
-margin-top: 35px;
+    margin-top: 35px;
 
-font-size: 11px;
+    font-size: 11px;
 
-letter-spacing: 5px;
+    letter-spacing: 5px;
 
-text-transform: uppercase;
+    text-transform: uppercase;
 
-color: rgba(216,194,255,.7);
+    color: rgba(216,194,255,.7);
 
-animation:
-tapPulse
-2s
-ease-in-out
-infinite;
+    animation:
+        tapPulse
+        2s
+        ease-in-out
+        infinite;
 
-z-index: 5;
+    z-index: 5;
 }
 
 
 @keyframes tapPulse {
 
-0%, 100% {
-opacity: .4;
-}
+    0%, 100% {
+        opacity: .4;
+    }
 
-50% {
-opacity: 1;
-}
+    50% {
+        opacity: 1;
+    }
 }
 
 
 /* ============================================================
-11. ENTRANCE DIVIDER
-============================================================ */
+   11. ENTRANCE DIVIDER
+   ============================================================ */
 
 .entrance-divider {
 
-display: flex;
+    display: flex;
 
-align-items: center;
+    align-items: center;
 
-gap: 15px;
+    gap: 15px;
 
-margin-top: 20px;
+    margin-top: 20px;
 
-opacity: .5;
+    opacity: .5;
 }
 
 
 .entrance-divider span {
 
-width: 50px;
+    width: 50px;
 
-height: 1px;
+    height: 1px;
 
-background:
-linear-gradient(
-90deg,
-transparent,
-var(--purple)
-);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--purple)
+        );
 
-box-shadow:
-0 0 8px var(--purple);
+    box-shadow:
+        0 0 8px var(--purple);
 }
 
 
 .entrance-divider span:last-child {
 
-background:
-linear-gradient(
-90deg,
-var(--purple),
-transparent
-);
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            transparent
+        );
 }
 
 
 .entrance-divider i {
 
-color: var(--light-purple);
+    color: var(--light-purple);
 
-font-style: normal;
+    font-style: normal;
 
-text-shadow:
-0 0 10px var(--purple);
+    text-shadow:
+        0 0 10px var(--purple);
 }
 
 
 /* ============================================================
-12. MAIN CONTENT
-============================================================ */
+   12. MAIN CONTENT
+   ============================================================ */
 
 .main-content {
 
-position: relative;
+    position: relative;
 
-z-index: 2;
+    z-index: 2;
 
-opacity: 0;
+    opacity: 0;
 
-transition:
-opacity 1.5s ease;
+    transition:
+        opacity 1.5s ease;
 }
 
 
 .main-content.visible {
 
-opacity: 1;
+    opacity: 1;
 }
 
 
 /* ============================================================
-13. INTRO SECTION
-============================================================ */
+   13. INTRO SECTION
+   ============================================================ */
 
 .intro-section {
 
-min-height: 100vh;
+    min-height: 100vh;
 
-display: flex;
+    display: flex;
 
-align-items: center;
+    align-items: center;
 
-justify-content: center;
+    justify-content: center;
 
-text-align: center;
+    text-align: center;
 
-padding: 100px 25px;
+    padding: 100px 25px;
 
-position: relative;
+    position: relative;
 }
 
 
 .intro-content {
 
-max-width: 900px;
+    max-width: 900px;
 
-width: 100%;
+    width: 100%;
 
-animation:
-introAppear
-1.5s
-ease
-both;
+    animation:
+        introAppear
+        1.5s
+        ease
+        both;
 }
 
 
 @keyframes introAppear {
 
-from {
+    from {
 
-opacity: 0;
+        opacity: 0;
 
-transform:
-translateY(40px);
+        transform:
+            translateY(40px);
 
-}
+    }
 
-to {
+    to {
 
-opacity: 1;
+        opacity: 1;
 
-transform:
-translateY(0);
+        transform:
+            translateY(0);
 
-}
+    }
 }
 
 
 /* ============================================================
-14. EYEBROW
-============================================================ */
+   14. EYEBROW
+   ============================================================ */
 
 .eyebrow {
 
-font-family: var(--sans);
+    font-family: var(--sans);
 
-text-transform: uppercase;
+    text-transform: uppercase;
 
-letter-spacing: 5px;
+    letter-spacing: 5px;
 
-font-size: 11px;
+    font-size: 11px;
 
-color: #e8d9ff;
+    color: var(--lavender);
 
-margin-bottom: 20px;
+    margin-bottom: 20px;
 
-text-shadow:
-0 0 12px rgba(255,255,255,.7);
+    text-shadow:
+        0 0 12px rgba(199,166,255,.7);
 
 }
 
 
 /* ============================================================
-15. MAIN TITLE
-============================================================ */
+   15. MAIN TITLE
+   ============================================================ */
 
 .main-title {
 
-font-family: var(--serif);
+    font-family: var(--serif);
 
-font-size:
-clamp(
-55px,
-8vw,
-110px
-);
+    font-size:
+        clamp(
+            55px,
+            8vw,
+            110px
+        );
 
-line-height: .95;
+    line-height: .95;
 
-font-weight: 500;
+    font-weight: 500;
 
-letter-spacing: -2px;
+    letter-spacing: -2px;
 
-color: #ffffff;
+    color: var(--white);
 
-text-shadow:
-0 0 15px rgba(255,255,255,.08);
+    text-shadow:
+        0 0 15px rgba(255,255,255,.08);
 }
 
 
 .main-title span {
 
-color: #c9a7ff;
+    color: var(--light-purple);
 
-text-shadow:
+    text-shadow:
 
-0 0 5px var(--light-purple),
+        0 0 5px var(--light-purple),
 
-0 0 15px var(--purple),
+        0 0 15px var(--purple),
 
-0 0 40px rgba(155,108,255,.6);
+        0 0 40px rgba(155,108,255,.6);
 }
 
 
 /* ============================================================
-16. INTRO DESCRIPTION
-============================================================ */
+   16. INTRO DESCRIPTION
+   ============================================================ */
 
 .intro-description {
 
-max-width: 580px;
+    max-width: 580px;
 
-margin:
-35px
-auto
-0;
+    margin:
+        35px
+        auto
+        0;
 
-font-family: var(--serif);
+    font-family: var(--serif);
 
-font-size: 20px;
+    font-size: 20px;
 
-line-height: 1.7;
+    line-height: 1.7;
 
-color: #eee6ff;
+    color: var(--soft-white);
 }
 
 
 /* ============================================================
-17. INTRO LINES
-============================================================ */
+   17. INTRO LINES
+   ============================================================ */
 
 .intro-lines {
 
-margin:
-65px
-auto
-0;
+    margin:
+        65px
+        auto
+        0;
 
-display: flex;
+    display: flex;
 
-align-items: center;
+    align-items: center;
 
-justify-content: center;
+    justify-content: center;
 
-gap: 18px;
+    gap: 18px;
 
-width: min(600px, 90%);
+    width: min(600px, 90%);
 }
 
 
 .intro-line {
 
-flex: 1;
+    flex: 1;
 
-height: 1px;
+    height: 1px;
 
-background:
-linear-gradient(
-90deg,
-transparent,
-var(--purple)
-);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--purple)
+        );
 
-box-shadow:
-0 0 8px var(--purple);
+    box-shadow:
+        0 0 8px var(--purple);
 
-opacity: .6;
+    opacity: .6;
 }
 
 
 .intro-line.right {
 
-background:
-linear-gradient(
-90deg,
-var(--purple),
-transparent
-);
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            transparent
+        );
 }
 
 
 .read-on {
 
-color: #d8c2ff;
+    color: var(--lavender);
 
-font-size: 10px;
+    font-size: 10px;
 
-letter-spacing: 4px;
+    letter-spacing: 4px;
 
-text-transform: uppercase;
+    text-transform: uppercase;
 
-cursor: pointer;
+    cursor: pointer;
 
-transition:
-transform .3s ease,
-text-shadow .3s ease;
+    transition:
+        transform .3s ease,
+        text-shadow .3s ease;
 }
 
 
 .read-on:hover {
 
-transform: translateY(4px);
+    transform: translateY(4px);
 
-text-shadow:
-0 0 10px var(--light-purple),
-0 0 25px var(--purple);
+    text-shadow:
+        0 0 10px var(--light-purple),
+        0 0 25px var(--purple);
 }
 
 
 /* ============================================================
-18. SCROLL INDICATOR
-============================================================ */
+   18. SCROLL INDICATOR
+   ============================================================ */
 
 .scroll-indicator {
 
-margin-top: 35px;
+    margin-top: 35px;
 
-display: flex;
+    display: flex;
 
-flex-direction: column;
+    flex-direction: column;
 
-align-items: center;
+    align-items: center;
 
-gap: 5px;
+    gap: 5px;
 }
 
 
 .scroll-indicator span {
 
-width: 8px;
-height: 8px;
+    width: 8px;
+    height: 8px;
 
-border-right: 1px solid var(--lavender);
-border-bottom: 1px solid var(--lavender);
+    border-right: 1px solid var(--lavender);
+    border-bottom: 1px solid var(--lavender);
 
-transform:
-rotate(45deg);
+    transform:
+        rotate(45deg);
 
-animation:
-arrowDown
-1.8s
-ease-in-out
-infinite;
+    animation:
+        arrowDown
+        1.8s
+        ease-in-out
+        infinite;
 }
 
 
 .scroll-indicator span:nth-child(2) {
 
-animation-delay: .2s;
+    animation-delay: .2s;
 
-opacity: .5;
+    opacity: .5;
 }
 
 
 @keyframes arrowDown {
 
-0%, 100% {
-opacity: .2;
-transform:
-rotate(45deg)
-translate(-2px,-2px);
-}
+    0%, 100% {
+        opacity: .2;
+        transform:
+            rotate(45deg)
+            translate(-2px,-2px);
+    }
 
-50% {
-opacity: 1;
-transform:
-rotate(45deg)
-translate(3px,3px);
-}
+    50% {
+        opacity: 1;
+        transform:
+            rotate(45deg)
+            translate(3px,3px);
+    }
 }
 
 
 /* ============================================================
-19. CONFESSION SECTION
-============================================================ */
+   19. CONFESSION SECTION
+   ============================================================ */
 
 .confession-section {
 
-position: relative;
+    position: relative;
 
-min-height: 100vh;
+    min-height: 100vh;
 
-padding:
-150px
-25px
-120px;
+    padding:
+        150px
+        25px
+        120px;
 
-overflow: hidden;
+    overflow: hidden;
 }
 
 
@@ -1383,1030 +1384,1031 @@ overflow: hidden;
 
 .background-title {
 
-position: absolute;
+    position: absolute;
 
-top: 100px;
+    top: 100px;
 
-left: 50%;
+    left: 50%;
 
-transform:
-translateX(-50%);
+    transform:
+        translateX(-50%);
 
-white-space: nowrap;
+    white-space: nowrap;
 
-font-family: var(--serif);
+    font-family: var(--serif);
 
-font-size:
-clamp(
-100px,
-20vw,
-300px
-);
+    font-size:
+        clamp(
+            100px,
+            20vw,
+            300px
+        );
 
-color: rgba(255,255,255,.025);
+    color: rgba(255,255,255,.025);
 
-pointer-events: none;
+    pointer-events: none;
 
-user-select: none;
+    user-select: none;
 
-z-index: 0;
+    z-index: 0;
 }
 
 
 .confession-content {
 
-position: relative;
+    position: relative;
 
-z-index: 2;
+    z-index: 2;
 
-max-width: 900px;
+    max-width: 900px;
 
-margin: auto;
+    margin: auto;
 
-text-align: center;
+    text-align: center;
 }
 
 
 /* ============================================================
-20. SECTION LABEL
-============================================================ */
+   20. SECTION LABEL
+   ============================================================ */
 
 .section-label {
 
-font-size: 10px;
+    font-size: 10px;
 
-text-transform: uppercase;
+    text-transform: uppercase;
 
-letter-spacing: 6px;
+    letter-spacing: 6px;
 
-color: rgba(216,194,255,.45);
+    color: rgba(216,194,255,.45);
 
-margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 
 /* ============================================================
-21. CONFESSION HEADING
-============================================================ */
+   21. CONFESSION HEADING
+   ============================================================ */
 
 .confession-heading {
 
-font-family: var(--serif);
+    font-family: var(--serif);
 
-font-size:
-clamp(
-38px,
-5vw,
-65px
-);
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            65px
+        );
 
-font-weight: 500;
+    font-weight: 500;
 
-line-height: 1.12;
+    line-height: 1.12;
 
-color: #ffffff;
+    color: var(--white);
 
-max-width: 800px;
+    max-width: 800px;
 
-margin: auto;
+    margin: auto;
 
-text-shadow:
-0 0 20px rgba(155,108,255,.08);
+    text-shadow:
+        0 0 20px rgba(155,108,255,.08);
 }
 
 
 /* ============================================================
-22. HEART DIVIDER
-============================================================ */
+   22. HEART DIVIDER
+   ============================================================ */
 
 .heart-divider {
 
-display: flex;
+    display: flex;
 
-align-items: center;
+    align-items: center;
 
-gap: 20px;
+    gap: 20px;
 
-width: min(600px, 90%);
+    width: min(600px, 90%);
 
-margin:
-60px
-auto
-70px;
+    margin:
+        60px
+        auto
+        70px;
 }
 
 
 .divider-line {
 
-flex: 1;
+    flex: 1;
 
-height: 1px;
+    height: 1px;
 
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(155,108,255,.7)
-);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(155,108,255,.7)
+        );
 
-box-shadow:
-0 0 8px
-rgba(155,108,255,.6);
+    box-shadow:
+        0 0 8px
+        rgba(155,108,255,.6);
 }
 
 
 .divider-line:last-child {
 
-background:
-linear-gradient(
-90deg,
-rgba(155,108,255,.7),
-transparent
-);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(155,108,255,.7),
+            transparent
+        );
 }
 
 
 .divider-heart {
 
-color: var(--light-purple);
+    color: var(--light-purple);
 
-font-size: 18px;
+    font-size: 18px;
 
-text-shadow:
-0 0 8px var(--purple),
-0 0 20px var(--purple);
+    text-shadow:
+        0 0 8px var(--purple),
+        0 0 20px var(--purple);
 
-animation:
-dividerBeat
-2s
-ease-in-out
-infinite;
+    animation:
+        dividerBeat
+        2s
+        ease-in-out
+        infinite;
 }
 
 
 @keyframes dividerBeat {
 
-0%, 100% {
-transform: scale(1);
-}
+    0%, 100% {
+        transform: scale(1);
+    }
 
-50% {
-transform: scale(1.25);
-}
+    50% {
+        transform: scale(1.25);
+    }
 }
 
 
 /* ============================================================
-23. LETTER
-============================================================ */
+   23. LETTER
+   ============================================================ */
 
 .letter {
 
-max-width: 720px;
+    max-width: 720px;
 
-margin: auto;
+    margin: auto;
 
-text-align: left;
+    text-align: left;
 }
 
 
 .letter-paragraph {
 
-font-family: var(--serif);
+    font-family: var(--serif);
 
-font-size: 21px;
+    font-size: 21px;
 
-line-height: 1.9;
+    line-height: 1.9;
 
-letter-spacing: .15px;
+    letter-spacing: .15px;
 
-color: rgba(245, 240, 255, 0.92);
+    color: rgba(248,244,255,.78);
 
-margin-bottom: 38px;
+    margin-bottom: 38px;
 
-transition:
-opacity 1s ease,
-transform 1s ease;
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
 
 
 /* ============================================================
-24. SCROLL REVEAL
-============================================================ */
+   24. SCROLL REVEAL
+   ============================================================ */
 
 .hidden-before-reveal {
 
-opacity: 0;
+    opacity: 0;
 
-transform:
-translateY(35px);
+    transform:
+        translateY(35px);
 }
 
 
 .revealed {
 
-opacity: 1;
+    opacity: 1;
 
-transform:
-translateY(0);
+    transform:
+        translateY(0);
 }
 
 
 /* ============================================================
-25. HIDDEN MESSAGE
-============================================================ */
+   25. HIDDEN MESSAGE
+   ============================================================ */
 
 .hidden-message {
 
-margin:
-70px
-0;
+    margin:
+        70px
+        0;
 
-text-align: center;
+    text-align: center;
 }
 
 
 .reveal-button {
 
-background: transparent;
+    background: transparent;
 
-border:
-1px solid
-rgba(199,166,255,.35);
+    border:
+        1px solid
+        rgba(199,166,255,.35);
 
-color: #e6d8ff;
+    color: var(--lavender);
 
-padding:
-14px
-25px;
+    padding:
+        14px
+        25px;
 
-border-radius: 50px;
+    border-radius: 50px;
 
-font-family: var(--sans);
+    font-family: var(--sans);
 
-font-size: 10px;
+    font-size: 10px;
 
-letter-spacing: 2px;
+    letter-spacing: 2px;
 
-text-transform: uppercase;
+    text-transform: uppercase;
 
-cursor: pointer;
+    cursor: pointer;
 
-transition:
-all .4s ease;
+    transition:
+        all .4s ease;
 
-box-shadow:
-0 0 15px
-rgba(155,108,255,.08);
+    box-shadow:
+        0 0 15px
+        rgba(155,108,255,.08);
 }
 
 
 .reveal-button:hover {
 
-border-color:
-var(--light-purple);
+    border-color:
+        var(--light-purple);
 
-box-shadow:
-0 0 15px
-rgba(155,108,255,.4),
+    box-shadow:
+        0 0 15px
+        rgba(155,108,255,.4),
 
-0 0 35px
-rgba(155,108,255,.15);
+        0 0 35px
+        rgba(155,108,255,.15);
 
-transform:
-translateY(-3px);
+    transform:
+        translateY(-3px);
 }
 
 
 .secret-text {
 
-max-height: 0;
+    max-height: 0;
 
-overflow: hidden;
+    overflow: hidden;
 
-opacity: 0;
+    opacity: 0;
 
-transform:
-translateY(-10px);
+    transform:
+        translateY(-10px);
 
-transition:
-max-height 1s ease,
-opacity .8s ease,
-transform .8s ease;
+    transition:
+        max-height 1s ease,
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 
 .secret-text.show-secret {
 
-max-height: 300px;
+    max-height: 300px;
 
-opacity: 1;
+    opacity: 1;
 
-transform:
-translateY(0);
+    transform:
+        translateY(0);
 
-margin-top: 30px;
+    margin-top: 30px;
 }
 
 
 .secret-text p {
 
-font-family: var(--serif);
+    font-family: var(--serif);
 
-font-size: 20px;
+    font-size: 20px;
 
-line-height: 1.8;
+    line-height: 1.8;
 
-color: #e6d8ff;
+    color: var(--lavender);
 
-font-style: italic;
+    font-style: italic;
 
-text-shadow:
-0 0 12px
-rgba(199,166,255,.25);
+    text-shadow:
+        0 0 12px
+        rgba(199,166,255,.25);
 }
 
 
 /* ============================================================
-26. FINAL DIVIDER
-============================================================ */
+   26. FINAL DIVIDER
+   ============================================================ */
 
 .final-divider {
 
-display: flex;
+    display: flex;
 
-align-items: center;
+    align-items: center;
 
-gap: 25px;
+    gap: 25px;
 
-margin:
-120px
-0
-100px;
+    margin:
+        120px
+        0
+        100px;
 }
 
 
 .final-divider span {
 
-height: 1px;
+    height: 1px;
 
-flex: 1;
+    flex: 1;
 
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(155,108,255,.6)
-);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(155,108,255,.6)
+        );
 
-box-shadow:
-0 0 8px
-rgba(155,108,255,.5);
+    box-shadow:
+        0 0 8px
+        rgba(155,108,255,.5);
 }
 
 
 .final-divider span:last-child {
 
-background:
-linear-gradient(
-90deg,
-rgba(155,108,255,.6),
-transparent
-);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(155,108,255,.6),
+            transparent
+        );
 }
 
 
 .divider-symbol {
 
-font-size: 13px;
+    font-size: 13px;
 
-letter-spacing: 8px;
+    letter-spacing: 8px;
 
-color: #d8b8ff;
+    color: var(--light-purple);
 
-text-shadow:
-0 0 10px var(--purple);
+    text-shadow:
+        0 0 10px var(--purple);
 }
 
 
 /* ============================================================
-27. FINAL SECTION
-============================================================ */
+   27. FINAL SECTION
+   ============================================================ */
 
 .final-section {
 
-min-height: 60vh;
+    min-height: 60vh;
 
-display: flex;
+    display: flex;
 
-flex-direction: column;
+    flex-direction: column;
 
-align-items: center;
+    align-items: center;
 
-justify-content: center;
+    justify-content: center;
 
-text-align: center;
+    text-align: center;
 }
 
 
 .final-message {
 
-font-family: var(--serif);
+    font-family: var(--serif);
 
-font-size:
-clamp(
-28px,
-4vw,
-48px
-);
+    font-size:
+        clamp(
+            28px,
+            4vw,
+            48px
+        );
 
-font-style: italic;
+    font-style: italic;
 
-color: rgba(248,244,255,.85);
+    color: rgba(248,244,255,.85);
 
-text-shadow:
-0 0 15px
-rgba(155,108,255,.2);
+    text-shadow:
+        0 0 15px
+        rgba(155,108,255,.2);
 
-max-width: 650px;
+    max-width: 650px;
 }
 
 
 /* ============================================================
-28. FINAL ROSE
-============================================================ */
+   28. FINAL ROSE
+   ============================================================ */
 
 .final-rose {
 
-font-size: 65px;
+    font-size: 65px;
 
-margin-top: 50px;
+    margin-top: 50px;
 
-cursor: pointer;
+    cursor: pointer;
 
-display: inline-block;
+    display: inline-block;
 
-filter:
-drop-shadow(
-0 0 8px rgba(230,130,180,.5)
-)
-drop-shadow(
-0 0 20px rgba(155,108,255,.35)
-);
+    filter:
+        drop-shadow(
+            0 0 8px rgba(230,130,180,.5)
+        )
+        drop-shadow(
+            0 0 20px rgba(155,108,255,.35)
+        );
 
-animation:
-roseHeartbeat
-1.8s
-ease-in-out
-infinite;
+    animation:
+        roseHeartbeat
+        1.8s
+        ease-in-out
+        infinite;
 
-transition:
-filter .4s ease;
+    transition:
+        filter .4s ease;
 }
 
 
 @keyframes roseHeartbeat {
 
-0%, 100% {
+    0%, 100% {
 
-transform:
-scale(1)
-rotate(-2deg);
+        transform:
+            scale(1)
+            rotate(-2deg);
 
-}
+    }
 
-14% {
+    14% {
 
-transform:
-scale(1.08)
-rotate(2deg);
+        transform:
+            scale(1.08)
+            rotate(2deg);
 
-}
+    }
 
-28% {
+    28% {
 
-transform:
-scale(1)
-rotate(-2deg);
+        transform:
+            scale(1)
+            rotate(-2deg);
 
-}
+    }
 
-42% {
+    42% {
 
-transform:
-scale(1.05)
-rotate(1deg);
+        transform:
+            scale(1.05)
+            rotate(1deg);
 
-}
+    }
 
-70% {
+    70% {
 
-transform:
-scale(1)
-rotate(0deg);
+        transform:
+            scale(1)
+            rotate(0deg);
 
-}
+    }
 }
 
 
 .final-rose:hover {
 
-filter:
-drop-shadow(
-0 0 12px rgba(240,150,200,.8)
-)
-drop-shadow(
-0 0 35px rgba(155,108,255,.7)
-);
+    filter:
+        drop-shadow(
+            0 0 12px rgba(240,150,200,.8)
+        )
+        drop-shadow(
+            0 0 35px rgba(155,108,255,.7)
+        );
 }
 
 
 .final-rose.rose-clicked {
 
-animation:
-roseBurst
-.7s
-ease;
+    animation:
+        roseBurst
+        .7s
+        ease;
 }
 
 
 @keyframes roseBurst {
 
-0% {
-transform: scale(1);
-}
+    0% {
+        transform: scale(1);
+    }
 
-40% {
-transform: scale(1.5);
-}
+    40% {
+        transform: scale(1.5);
+    }
 
-100% {
-transform: scale(1);
-}
+    100% {
+        transform: scale(1);
+    }
 }
 
 
 /* ============================================================
-29. SIGNATURE
-============================================================ */
+   29. SIGNATURE
+   ============================================================ */
 
 .signature {
 
-margin-top: 25px;
+    margin-top: 25px;
 
-font-family: var(--serif);
+    font-family: var(--serif);
 
-font-size: 25px;
+    font-size: 25px;
 
-font-style: italic;
+    font-style: italic;
 
-color: #e1ccff;
+    color: var(--lavender);
 
-text-shadow:
-0 0 10px
-rgba(199,166,255,.4);
+    text-shadow:
+        0 0 10px
+        rgba(199,166,255,.4);
 }
 
 
 /* ============================================================
-30. CLICK HEART EFFECT
-============================================================ */
+   30. CLICK HEART EFFECT
+   ============================================================ */
 
 .click-heart {
 
-position: fixed;
+    position: fixed;
 
-z-index: 999;
+    z-index: 999;
 
-pointer-events: none;
+    pointer-events: none;
 
-color: var(--light-purple);
+    color: var(--light-purple);
 
-font-size: 20px;
+    font-size: 20px;
 
-text-shadow:
-0 0 8px var(--purple),
-0 0 20px var(--purple);
+    text-shadow:
+        0 0 8px var(--purple),
+        0 0 20px var(--purple);
 
-transform:
-translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
-animation:
-clickHeartAnimation
-1.2s
-ease-out
-forwards;
+    animation:
+        clickHeartAnimation
+        1.2s
+        ease-out
+        forwards;
 }
 
 
 @keyframes clickHeartAnimation {
 
-0% {
+    0% {
 
-opacity: 1;
+        opacity: 1;
 
-transform:
-translate(-50%, -50%)
-scale(.5);
-}
+        transform:
+            translate(-50%, -50%)
+            scale(.5);
+    }
 
-50% {
+    50% {
 
-opacity: 1;
+        opacity: 1;
 
-transform:
-translate(-50%, -100px)
-scale(1.2);
-}
+        transform:
+            translate(-50%, -100px)
+            scale(1.2);
+    }
 
-100% {
+    100% {
 
-opacity: 0;
+        opacity: 0;
 
-transform:
-translate(-50%, -160px)
-scale(.5);
-}
+        transform:
+            translate(-50%, -160px)
+            scale(.5);
+    }
 }
 
 
 /* ============================================================
-31. ROSE HEART BURST
-============================================================ */
+   31. ROSE HEART BURST
+   ============================================================ */
 
 .rose-heart {
 
-position: fixed;
+    position: fixed;
 
-z-index: 999;
+    z-index: 999;
 
-pointer-events: none;
+    pointer-events: none;
 
-color: var(--rose-light);
+    color: var(--rose-light);
 
-font-size: 16px;
+    font-size: 16px;
 
-text-shadow:
-0 0 10px var(--rose);
+    text-shadow:
+        0 0 10px var(--rose);
 
-animation:
-roseHeartBurst
-1.2s
-ease-out
-forwards;
+    animation:
+        roseHeartBurst
+        1.2s
+        ease-out
+        forwards;
 }
 
 
 @keyframes roseHeartBurst {
 
-0% {
+    0% {
 
-transform:
-translate(-50%, -50%)
-scale(.3);
+        transform:
+            translate(-50%, -50%)
+            scale(.3);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 
-20% {
+    20% {
 
-opacity: 1;
+        opacity: 1;
 
-transform:
-translate(-50%, -50%)
-scale(1);
-}
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
 
-100% {
+    100% {
 
-transform:
-translate(
-calc(-50% + var(--x)),
-calc(-50% + var(--y))
-)
-scale(.2);
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(.2);
 
-opacity: 0;
-}
+        opacity: 0;
+    }
 }
 
 
 /* ============================================================
-32. AMBIENT GLOW
-============================================================ */
+   32. AMBIENT GLOW
+   ============================================================ */
 
 .ambient-glow {
 
-position: fixed;
+    position: fixed;
 
-width: 100px;
-height: 100px;
+    width: 100px;
+    height: 100px;
 
-border-radius: 50%;
+    border-radius: 50%;
 
-pointer-events: none;
+    pointer-events: none;
 
-background:
-radial-gradient(
-circle,
-rgba(155,108,255,.15),
-transparent 70%
-);
+    background:
+        radial-gradient(
+            circle,
+            rgba(155,108,255,.15),
+            transparent 70%
+        );
 
-filter: blur(15px);
+    filter: blur(15px);
 
-transform:
-translate(-50%, -50%)
-scale(.3);
+    transform:
+        translate(-50%, -50%)
+        scale(.3);
 
-animation:
-ambientGlow
-4s
-ease-out
-forwards;
+    animation:
+        ambientGlow
+        4s
+        ease-out
+        forwards;
 }
 
 
 @keyframes ambientGlow {
 
-0% {
+    0% {
 
-opacity: 0;
+        opacity: 0;
 
-transform:
-translate(-50%, -50%)
-scale(.3);
-}
+        transform:
+            translate(-50%, -50%)
+            scale(.3);
+    }
 
-40% {
-opacity: 1;
-}
+    40% {
+        opacity: 1;
+    }
 
-100% {
+    100% {
 
-opacity: 0;
+        opacity: 0;
 
-transform:
-translate(-50%, -50%)
-scale(2.5);
-}
+        transform:
+            translate(-50%, -50%)
+            scale(2.5);
+    }
 }
 
 
 /* ============================================================
-33. FOOTER
-============================================================ */
+   33. FOOTER
+   ============================================================ */
 
 .site-footer {
 
-padding:
-70px
-25px
-40px;
+    padding:
+        70px
+        25px
+        40px;
 
-text-align: center;
+    text-align: center;
 
-color:
-rgba(216,194,255,.35);
+    color:
+        rgba(216,194,255,.35);
 
-font-size: 9px;
+    font-size: 9px;
 
-letter-spacing: 1px;
+    letter-spacing: 1px;
 }
 
 
 .site-footer span {
 
-display: block;
+    display: block;
 
-margin-top: 15px;
+    margin-top: 15px;
 
-color:
-rgba(199,166,255,.5);
+    color:
+        rgba(199,166,255,.5);
 
-text-shadow:
-0 0 10px var(--purple);
+    text-shadow:
+        0 0 10px var(--purple);
 }
 
 
 /* ============================================================
-34. MOBILE RESPONSIVENESS
-============================================================ */
+   34. MOBILE RESPONSIVENESS
+   ============================================================ */
 
 @media (max-width: 700px) {
 
-.entrance-rose {
-top: 10%;
-font-size: 40px;
-}
+    .entrance-rose {
+        top: 10%;
+        font-size: 40px;
+    }
 
 
-.heart-entrance {
+    .heart-entrance {
 
-width: 180px;
-height: 165px;
+        width: 180px;
+        height: 165px;
 
-}
+    }
 
 
-.heart-entrance::before,
-.heart-entrance::after {
+    .heart-entrance::before,
+    .heart-entrance::after {
 
-width: 120px;
-height: 120px;
+        width: 120px;
+        height: 120px;
 
-}
+    }
 
 
-.heart-entrance::before {
+    .heart-entrance::before {
 
-left: 30px;
+        left: 30px;
 
-}
+    }
 
 
-.heart-entrance::after {
+    .heart-entrance::after {
 
-top: 30px;
+        top: 30px;
 
-}
+    }
 
 
-.heart-content h1 {
+    .heart-content h1 {
 
-font-size: 34px;
+        font-size: 34px;
 
-}
+    }
 
 
-.intro-section {
+    .intro-section {
 
-padding:
-80px
-20px;
+        padding:
+            80px
+            20px;
 
-}
+    }
 
 
-.eyebrow {
+    .eyebrow {
 
-font-size: 9px;
+        font-size: 9px;
 
-letter-spacing: 3px;
+        letter-spacing: 3px;
 
-}
+    }
 
 
-.intro-description {
+    .intro-description {
 
-font-size: 18px;
+        font-size: 18px;
 
-line-height: 1.65;
+        line-height: 1.65;
 
-}
+    }
 
 
-.intro-lines {
+    .intro-lines {
 
-margin-top: 45px;
+        margin-top: 45px;
 
-}
+    }
 
 
-.confession-section {
+    .confession-section {
 
-padding:
-100px
-20px
-80px;
+        padding:
+            100px
+            20px
+            80px;
 
-}
+    }
 
 
-.background-title {
+    .background-title {
 
-top: 70px;
+        top: 70px;
 
-font-size: 90px;
+        font-size: 90px;
 
-}
+    }
 
 
-.confession-heading {
+    .confession-heading {
 
-font-size: 36px;
+        font-size: 36px;
 
-}
+    }
 
 
-.letter-paragraph {
+    .letter-paragraph {
 
-font-size: 19px;
+        font-size: 19px;
 
-line-height: 1.8;
+        line-height: 1.8;
 
-}
+    }
 
 
-.heart-divider {
+    .heart-divider {
 
-margin:
-45px
-auto
-55px;
+        margin:
+            45px
+            auto
+            55px;
 
-}
+    }
 
 
-.final-divider {
+    .final-divider {
 
-margin:
-80px
-0
-70px;
+        margin:
+            80px
+            0
+            70px;
 
-}
+    }
 
 
-.final-message {
+    .final-message {
 
-font-size: 30px;
+        font-size: 30px;
 
-}
+    }
 
 
-.final-rose {
+    .final-rose {
 
-font-size: 55px;
+        font-size: 55px;
 
-}
+    }
 
 }
 
 
 /* ============================================================
-35. VERY SMALL PHONES
-============================================================ */
+   35. VERY SMALL PHONES
+   ============================================================ */
 
 @media (max-width: 400px) {
 
-.heart-entrance {
+    .heart-entrance {
 
-transform:
-rotate(-45deg)
-scale(.85);
+        transform:
+            rotate(-45deg)
+            scale(.85);
 
-}
-
-
-.heart-entrance:hover {
-
-transform:
-rotate(-45deg)
-scale(.92);
-
-}
+    }
 
 
-.main-title {
+    .heart-entrance:hover {
 
-font-size: 52px;
+        transform:
+            rotate(-45deg)
+            scale(.92);
 
-}
-
-
-.confession-heading {
-
-font-size: 32px;
-
-}
+    }
 
 
-.letter-paragraph {
+    .main-title {
 
-font-size: 18px;
+        font-size: 52px;
 
-}
+    }
+
+
+    .confession-heading {
+
+        font-size: 32px;
+
+    }
+
+
+    .letter-paragraph {
+
+        font-size: 18px;
+
+    }
 
 }
 
 
 /* ============================================================
-36. REDUCED MOTION
-============================================================ */
+   36. REDUCED MOTION
+   ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
 
-*,
-*::before,
-*::after {
+    *,
+    *::before,
+    *::after {
 
-animation-duration: .01ms !important;
+        animation-duration: .01ms !important;
 
-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
 
-scroll-behavior: auto !important;
+        scroll-behavior: auto !important;
+
+    }
 
 }
-
-}
+```
