@@ -17,9 +17,6 @@ const secretText = document.getElementById("secretText");
 
 const fallingEffects = document.getElementById("fallingEffects");
 
-// Background music
-const backgroundMusic = document.getElementById("backgroundMusic");
-
 
 // ============================================================
 // 2. WEBSITE STARTUP
@@ -27,17 +24,17 @@ const backgroundMusic = document.getElementById("backgroundMusic");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-// Hide the main website when the page first loads
-mainContent.style.display = "none";
+    // Hide the main website when the page first loads
+    mainContent.style.display = "none";
 
-// Create the falling atmosphere
-createFallingEffects();
+    // Create the falling atmosphere
+    createFallingEffects();
 
-// Create background particles
-createBackgroundParticles();
+    // Create background particles
+    createBackgroundParticles();
 
-// Prepare scroll animations
-prepareScrollAnimations();
+    // Prepare scroll animations
+    prepareScrollAnimations();
 
 });
 
@@ -48,41 +45,37 @@ prepareScrollAnimations();
 
 beginButton.addEventListener("click", () => {
 
-// Prevent multiple clicks
-beginButton.disabled = true;
+    // Prevent multiple clicks
+    beginButton.disabled = true;
 
-// Add the opening animation
-entrance.classList.add("opening");
+    // Add the opening animation
+    entrance.classList.add("opening");
 
-// Start background music
-backgroundMusic.volume = 0.35;
-backgroundMusic.play();
+    // Future sound effect goes here
+    //
+    // Example later:
+    //
+    // const clickSound = new Audio("sounds/click.mp3");
+    // clickSound.play();
 
-// Future sound effect goes here
-//
-// Example later:
-//
-// const clickSound = new Audio("sounds/click.mp3");
-// clickSound.play();
+    // Wait for the entrance animation
+    setTimeout(() => {
 
-// Wait for the entrance animation
-setTimeout(() => {
+        entrance.style.display = "none";
 
-entrance.style.display = "none";
+        mainContent.style.display = "block";
 
-mainContent.style.display = "block";
+        // Small delay allows CSS animations to start properly
+        setTimeout(() => {
 
-// Small delay allows CSS animations to start properly
-setTimeout(() => {
+            mainContent.classList.add("visible");
 
-mainContent.classList.add("visible");
+            // Start observing scroll animations
+            startScrollAnimations();
 
-// Start observing scroll animations
-startScrollAnimations();
+        }, 100);
 
-}, 100);
-
-}, 1500);
+    }, 1500);
 
 });
 
@@ -109,45 +102,45 @@ startScrollAnimations();
 // Available falling objects
 const fallingObjects = [
 
-{
-type: "heart",
-symbols: ["♥", "♡"]
-},
+    {
+        type: "heart",
+        symbols: ["♥", "♡"]
+    },
 
-{
-type: "rose",
-symbols: ["🌹"]
-},
+    {
+        type: "rose",
+        symbols: ["🌹"]
+    },
 
-{
-type: "sparkle",
-symbols: ["✦", "✧", "✨"]
-},
+    {
+        type: "sparkle",
+        symbols: ["✦", "✧", "✨"]
+    },
 
-{
-type: "star",
-symbols: ["★", "☆"]
-},
+    {
+        type: "star",
+        symbols: ["★", "☆"]
+    },
 
-{
-type: "dot",
-symbols: ["•", "·"]
-},
+    {
+        type: "dot",
+        symbols: ["•", "·"]
+    },
 
-{
-type: "petal",
-symbols: ["❀", "❁", "✿"]
-},
+    {
+        type: "petal",
+        symbols: ["❀", "❁", "✿"]
+    },
 
-{
-type: "diamond",
-symbols: ["◆", "◇"]
-},
+    {
+        type: "diamond",
+        symbols: ["◆", "◇"]
+    },
 
-{
-type: "particle",
-symbols: ["."]
-}
+    {
+        type: "particle",
+        symbols: ["."]
+    }
 
 ];
 
@@ -155,76 +148,76 @@ symbols: ["."]
 // Generate one falling object
 function createFallingObject(effect) {
 
-const element = document.createElement("span");
+    const element = document.createElement("span");
 
-const randomSymbol =
-effect.symbols[
-Math.floor(Math.random() * effect.symbols.length)
-];
+    const randomSymbol =
+        effect.symbols[
+            Math.floor(Math.random() * effect.symbols.length)
+        ];
 
-element.classList.add(
-"falling-object",
-`falling-${effect.type}`
-);
+    element.classList.add(
+        "falling-object",
+        `falling-${effect.type}`
+    );
 
-element.textContent = randomSymbol;
-
-
-// Random horizontal starting position
-element.style.left =
-Math.random() * 100 + "vw";
+    element.textContent = randomSymbol;
 
 
-// Random size
-const size =
-Math.random() * 14 + 8;
-
-element.style.fontSize =
-size + "px";
+    // Random horizontal starting position
+    element.style.left =
+        Math.random() * 100 + "vw";
 
 
-// Random animation duration
-const duration =
-Math.random() * 7 + 6;
+    // Random size
+    const size =
+        Math.random() * 14 + 8;
 
-element.style.animationDuration =
-duration + "s";
-
-
-// Random delay
-element.style.animationDelay =
-Math.random() * 2 + "s";
+    element.style.fontSize =
+        size + "px";
 
 
-// Random horizontal movement
-const drift =
-(Math.random() - 0.5) * 250;
+    // Random animation duration
+    const duration =
+        Math.random() * 7 + 6;
 
-element.style.setProperty(
-"--drift",
-drift + "px"
-);
+    element.style.animationDuration =
+        duration + "s";
 
 
-// Random rotation
-const rotation =
-Math.random() * 720 - 360;
-
-element.style.setProperty(
-"--rotation",
-rotation + "deg"
-);
+    // Random delay
+    element.style.animationDelay =
+        Math.random() * 2 + "s";
 
 
-fallingEffects.appendChild(element);
+    // Random horizontal movement
+    const drift =
+        (Math.random() - 0.5) * 250;
+
+    element.style.setProperty(
+        "--drift",
+        drift + "px"
+    );
 
 
-// Remove it after the animation
-setTimeout(() => {
+    // Random rotation
+    const rotation =
+        Math.random() * 720 - 360;
 
-element.remove();
+    element.style.setProperty(
+        "--rotation",
+        rotation + "deg"
+    );
 
-}, (duration + 3) * 1000);
+
+    fallingEffects.appendChild(element);
+
+
+    // Remove it after the animation
+    setTimeout(() => {
+
+        element.remove();
+
+    }, (duration + 3) * 1000);
 
 }
 
@@ -232,30 +225,30 @@ element.remove();
 // Create all eight effects
 function createFallingEffects() {
 
-fallingObjects.forEach(effect => {
+    fallingObjects.forEach(effect => {
 
-// Number of objects for each type
-let amount = 3;
+        // Number of objects for each type
+        let amount = 3;
 
-if (effect.type === "dot") {
-amount = 5;
-}
+        if (effect.type === "dot") {
+            amount = 5;
+        }
 
-if (effect.type === "particle") {
-amount = 7;
-}
+        if (effect.type === "particle") {
+            amount = 7;
+        }
 
-for (let i = 0; i < amount; i++) {
+        for (let i = 0; i < amount; i++) {
 
-createFallingObject(effect);
+            createFallingObject(effect);
 
-}
+        }
 
-});
+    });
 
 
-// Continue generating objects
-setTimeout(createFallingEffects, 2500);
+    // Continue generating objects
+    setTimeout(createFallingEffects, 2500);
 
 }
 
@@ -266,56 +259,56 @@ setTimeout(createFallingEffects, 2500);
 
 function createBackgroundParticles() {
 
-const particleContainer =
-document.querySelector(".background-effects");
+    const particleContainer =
+        document.querySelector(".background-effects");
 
 
-// Create 60 tiny particles
-for (let i = 0; i < 60; i++) {
+    // Create 60 tiny particles
+    for (let i = 0; i < 60; i++) {
 
-const particle =
-document.createElement("span");
-
-
-particle.classList.add(
-"background-particle"
-);
+        const particle =
+            document.createElement("span");
 
 
-// Random position
-particle.style.left =
-Math.random() * 100 + "%";
-
-particle.style.top =
-Math.random() * 100 + "%";
+        particle.classList.add(
+            "background-particle"
+        );
 
 
-// Random size
-const size =
-Math.random() * 4 + 1;
+        // Random position
+        particle.style.left =
+            Math.random() * 100 + "%";
 
-particle.style.width =
-size + "px";
-
-particle.style.height =
-size + "px";
+        particle.style.top =
+            Math.random() * 100 + "%";
 
 
-// Random animation delay
-particle.style.animationDelay =
-Math.random() * 5 + "s";
+        // Random size
+        const size =
+            Math.random() * 4 + 1;
+
+        particle.style.width =
+            size + "px";
+
+        particle.style.height =
+            size + "px";
 
 
-// Random animation speed
-particle.style.animationDuration =
-Math.random() * 5 + 4 + "s";
+        // Random animation delay
+        particle.style.animationDelay =
+            Math.random() * 5 + "s";
 
 
-particleContainer.appendChild(
-particle
-);
+        // Random animation speed
+        particle.style.animationDuration =
+            Math.random() * 5 + 4 + "s";
 
-}
+
+        particleContainer.appendChild(
+            particle
+        );
+
+    }
 
 }
 
@@ -326,17 +319,17 @@ particle
 
 function prepareScrollAnimations() {
 
-const elements =
-document.querySelectorAll(".reveal-text");
+    const elements =
+        document.querySelectorAll(".reveal-text");
 
 
-elements.forEach(element => {
+    elements.forEach(element => {
 
-element.classList.add(
-"hidden-before-reveal"
-);
+        element.classList.add(
+            "hidden-before-reveal"
+        );
 
-});
+    });
 
 }
 
@@ -344,45 +337,45 @@ element.classList.add(
 // Start watching elements
 function startScrollAnimations() {
 
-const elements =
-document.querySelectorAll(
-".hidden-before-reveal"
-);
+    const elements =
+        document.querySelectorAll(
+            ".hidden-before-reveal"
+        );
 
 
-const observer =
-new IntersectionObserver(
-(entries) => {
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
 
-entries.forEach(entry => {
+                entries.forEach(entry => {
 
-if (entry.isIntersecting) {
+                    if (entry.isIntersecting) {
 
-entry.target.classList.add(
-"revealed"
-);
+                        entry.target.classList.add(
+                            "revealed"
+                        );
 
-// Stop observing after revealing
-observer.unobserve(
-entry.target
-);
+                        // Stop observing after revealing
+                        observer.unobserve(
+                            entry.target
+                        );
 
-}
+                    }
 
-});
+                });
 
-},
-{
-threshold: 0.15
-}
-);
+            },
+            {
+                threshold: 0.15
+            }
+        );
 
 
-elements.forEach(element => {
+    elements.forEach(element => {
 
-observer.observe(element);
+        observer.observe(element);
 
-});
+    });
 
 }
 
@@ -393,36 +386,36 @@ observer.observe(element);
 
 revealButton.addEventListener("click", () => {
 
-// Reveal the secret text
-secretText.classList.toggle(
-"show-secret"
-);
+    // Reveal the secret text
+    secretText.classList.toggle(
+        "show-secret"
+    );
 
 
-// Change button text
-if (
-secretText.classList.contains(
-"show-secret"
-)
-) {
+    // Change button text
+    if (
+        secretText.classList.contains(
+            "show-secret"
+        )
+    ) {
 
-revealButton.textContent =
-"♥ A little more...";
+        revealButton.textContent =
+            "♥ A little more...";
 
-} else {
+    } else {
 
-revealButton.textContent =
-"There is something else...";
+        revealButton.textContent =
+            "There is something else...";
 
-}
+    }
 
 
-// Future sound effect
-//
-// const revealSound =
-// new Audio("sounds/reveal.mp3");
-//
-// revealSound.play();
+    // Future sound effect
+    //
+    // const revealSound =
+    //     new Audio("sounds/reveal.mp3");
+    //
+    // revealSound.play();
 
 });
 
@@ -433,60 +426,60 @@ revealButton.textContent =
 
 document.addEventListener("click", (event) => {
 
-// Don't create the effect when clicking
-// the opening heart itself
-if (
-event.target.closest(
-"#beginButton"
-)
-) {
-return;
-}
+    // Don't create the effect when clicking
+    // the opening heart itself
+    if (
+        event.target.closest(
+            "#beginButton"
+        )
+    ) {
+        return;
+    }
 
 
-createClickHeart(
-event.clientX,
-event.clientY
-);
+    createClickHeart(
+        event.clientX,
+        event.clientY
+    );
 
 });
 
 
 function createClickHeart(x, y) {
 
-const heart =
-document.createElement("span");
+    const heart =
+        document.createElement("span");
 
 
-heart.classList.add(
-"click-heart"
-);
+    heart.classList.add(
+        "click-heart"
+    );
 
 
-heart.textContent =
-Math.random() > 0.5
-? "♥"
-: "♡";
+    heart.textContent =
+        Math.random() > 0.5
+            ? "♥"
+            : "♡";
 
 
-heart.style.left =
-x + "px";
+    heart.style.left =
+        x + "px";
 
-heart.style.top =
-y + "px";
-
-
-document.body.appendChild(
-heart
-);
+    heart.style.top =
+        y + "px";
 
 
-// Remove after animation
-setTimeout(() => {
+    document.body.appendChild(
+        heart
+    );
 
-heart.remove();
 
-}, 1200);
+    // Remove after animation
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 1200);
 
 }
 
@@ -497,22 +490,22 @@ heart.remove();
 
 document.addEventListener("click", (event) => {
 
-const readOn =
-event.target.closest(".read-on");
+    const readOn =
+        event.target.closest(".read-on");
 
 
-if (!readOn) return;
+    if (!readOn) return;
 
 
-const confession =
-document.getElementById(
-"confession"
-);
+    const confession =
+        document.getElementById(
+            "confession"
+        );
 
 
-confession.scrollIntoView({
-behavior: "smooth"
-});
+    confession.scrollIntoView({
+        behavior: "smooth"
+    });
 
 });
 
@@ -522,106 +515,106 @@ behavior: "smooth"
 // ============================================================
 
 const finalRose =
-document.getElementById(
-"finalRose"
-);
+    document.getElementById(
+        "finalRose"
+    );
 
 
 if (finalRose) {
 
-finalRose.addEventListener(
-"click",
-() => {
+    finalRose.addEventListener(
+        "click",
+        () => {
 
-finalRose.classList.add(
-"rose-clicked"
-);
+            finalRose.classList.add(
+                "rose-clicked"
+            );
 
 
-// Create a burst of hearts
-for (let i = 0; i < 12; i++) {
+            // Create a burst of hearts
+            for (let i = 0; i < 12; i++) {
 
-createRoseHeart(
-finalRose
-);
+                createRoseHeart(
+                    finalRose
+                );
 
-}
+            }
 
-}
-);
+        }
+    );
 
 }
 
 
 function createRoseHeart(rose) {
 
-const heart =
-document.createElement("span");
+    const heart =
+        document.createElement("span");
 
 
-heart.classList.add(
-"rose-heart"
-);
+    heart.classList.add(
+        "rose-heart"
+    );
 
 
-heart.textContent =
-"♥";
+    heart.textContent =
+        "♥";
 
 
-// Position around the rose
-const rect =
-rose.getBoundingClientRect();
+    // Position around the rose
+    const rect =
+        rose.getBoundingClientRect();
 
 
-heart.style.left =
-rect.left +
-rect.width / 2 +
-"px";
+    heart.style.left =
+        rect.left +
+        rect.width / 2 +
+        "px";
 
 
-heart.style.top =
-rect.top +
-rect.height / 2 +
-"px";
+    heart.style.top =
+        rect.top +
+        rect.height / 2 +
+        "px";
 
 
-// Random direction
-const angle =
-Math.random() *
-Math.PI *
-2;
+    // Random direction
+    const angle =
+        Math.random() *
+        Math.PI *
+        2;
 
 
-const distance =
-Math.random() * 100 + 50;
+    const distance =
+        Math.random() * 100 + 50;
 
 
-heart.style.setProperty(
-"--x",
-Math.cos(angle) *
-distance +
-"px"
-);
+    heart.style.setProperty(
+        "--x",
+        Math.cos(angle) *
+        distance +
+        "px"
+    );
 
 
-heart.style.setProperty(
-"--y",
-Math.sin(angle) *
-distance +
-"px"
-);
+    heart.style.setProperty(
+        "--y",
+        Math.sin(angle) *
+        distance +
+        "px"
+    );
 
 
-document.body.appendChild(
-heart
-);
+    document.body.appendChild(
+        heart
+    );
 
 
-setTimeout(() => {
+    setTimeout(() => {
 
-heart.remove();
+        heart.remove();
 
-}, 1200);
+    }, 1200);
 
 }
 
@@ -637,32 +630,32 @@ heart.remove();
 // Occasionally create a glow
 setInterval(() => {
 
-const glow =
-document.createElement("div");
+    const glow =
+        document.createElement("div");
 
 
-glow.classList.add(
-"ambient-glow"
-);
+    glow.classList.add(
+        "ambient-glow"
+    );
 
 
-glow.style.left =
-Math.random() * 100 + "vw";
+    glow.style.left =
+        Math.random() * 100 + "vw";
 
-glow.style.top =
-Math.random() * 100 + "vh";
-
-
-document.body.appendChild(
-glow
-);
+    glow.style.top =
+        Math.random() * 100 + "vh";
 
 
-setTimeout(() => {
+    document.body.appendChild(
+        glow
+    );
 
-glow.remove();
 
-}, 4000);
+    setTimeout(() => {
+
+        glow.remove();
+
+    }, 4000);
 
 }, 3000);
 
@@ -677,7 +670,7 @@ glow.remove();
 // as copyright protection. It doesn't actually protect files.
 //
 // document.addEventListener("contextmenu", e => {
-// e.preventDefault();
+//     e.preventDefault();
 // });
 
 
@@ -686,5 +679,5 @@ glow.remove();
 // ============================================================
 
 console.log(
-"💜 For You, As Always — website initialized."
+    "💜 For You, As Always — website initialized."
 );
