@@ -191,7 +191,7 @@ function checkout() {
     receipt.innerHTML = `
         <h2>🧾 RECEIPT</h2>
 
-        <p><b>Restaurant:</b> Buddy's Restaurant</p>
+        <p><b>Restaurant:</b> Wayne's Restaurant</p>
         <p><b>Customer:</b> ${name}</p>
         <p><b>Contact:</b> ${contact}</p>
 
